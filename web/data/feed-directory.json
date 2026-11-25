@@ -1,6 +1,6 @@
 {
   "schema": "coolcode.feed-directory.v1",
-  "reviewed_at": "2026-11-25T06:40:10Z",
+  "reviewed_at": "2026-11-25T13:26:42Z",
   "categories": [
     {
       "id": "projects",
@@ -702,6 +702,265 @@
         "format": "Atom",
         "entry_count": 55,
         "latest_entry_at": "2026-10-06T14:00:05Z"
+      }
+    },
+    {
+      "id": "civicrevision-all",
+      "title": "Civic Revision · All topics",
+      "url": "https://raw.githubusercontent.com/jsdyer/civicrevision/main/web/data/feeds/all.xml",
+      "site": "https://coolcode.ca/civicrevision/",
+      "description": "Captured revisions across Canadian institutions, policy, public services, BC and Nova Scotia. Produced by CoolCode from public Wikipedia history.",
+      "tags": [
+        "Canada",
+        "Wikipedia",
+        "revisions"
+      ],
+      "category": "explorers",
+      "verification": {
+        "checked_at": "2026-11-25T13:26:27Z",
+        "fetched_at": "2026-11-25T13:20:15.193Z",
+        "format": "RSS",
+        "entry_count": 50,
+        "latest_entry_at": "2026-11-24T13:49:25Z"
+      }
+    },
+    {
+      "id": "civicrevision-institutions",
+      "title": "Civic Revision · Public institutions",
+      "url": "https://raw.githubusercontent.com/jsdyer/civicrevision/main/web/data/feeds/institutions.xml",
+      "site": "https://coolcode.ca/civicrevision/",
+      "description": "Readable captured changes to Parliament, the Supreme Court and the CRTC. Produced by CoolCode from public Wikipedia history.",
+      "tags": [
+        "Canada",
+        "Parliament",
+        "courts",
+        "CRTC"
+      ],
+      "category": "explorers",
+      "verification": {
+        "checked_at": "2026-11-25T13:26:27Z",
+        "fetched_at": "2026-11-25T13:26:31.551Z",
+        "format": "RSS",
+        "entry_count": 33,
+        "latest_entry_at": "2026-11-24T13:49:25Z"
+      }
+    },
+    {
+      "id": "civicrevision-rights-policy",
+      "title": "Civic Revision · Rights and public policy",
+      "url": "https://raw.githubusercontent.com/jsdyer/civicrevision/main/web/data/feeds/rights-policy.xml",
+      "site": "https://coolcode.ca/civicrevision/",
+      "description": "Captured revisions to Canadian copyright, privacy and access-to-information articles. Produced by CoolCode from public Wikipedia history.",
+      "tags": [
+        "Canada",
+        "copyright",
+        "privacy",
+        "ATIP"
+      ],
+      "category": "explorers",
+      "verification": {
+        "checked_at": "2026-11-25T13:26:27Z",
+        "fetched_at": "2026-11-25T13:26:31.558Z",
+        "format": "RSS",
+        "entry_count": 33,
+        "latest_entry_at": "2026-11-22T16:48:43Z"
+      }
+    },
+    {
+      "id": "civicrevision-economy",
+      "title": "Civic Revision · Economy and public services",
+      "url": "https://raw.githubusercontent.com/jsdyer/civicrevision/main/web/data/feeds/economy.xml",
+      "site": "https://coolcode.ca/civicrevision/",
+      "description": "Captured Wikipedia revisions about the Bank of Canada, Statistics Canada and Canada Post. Produced by CoolCode from public Wikipedia history.",
+      "tags": [
+        "Canada",
+        "economy",
+        "public services"
+      ],
+      "category": "money",
+      "verification": {
+        "checked_at": "2026-11-25T13:26:31Z",
+        "fetched_at": "2026-11-25T13:26:35.208Z",
+        "format": "RSS",
+        "entry_count": 33,
+        "latest_entry_at": "2026-11-24T09:12:26Z"
+      }
+    },
+    {
+      "id": "civicrevision-regional",
+      "title": "Civic Revision · BC and Nova Scotia",
+      "url": "https://raw.githubusercontent.com/jsdyer/civicrevision/main/web/data/feeds/regional.xml",
+      "site": "https://coolcode.ca/civicrevision/",
+      "description": "Captured revisions about BC and Nova Scotia governments and Halifax council. Produced by CoolCode from public Wikipedia history.",
+      "tags": [
+        "British Columbia",
+        "Nova Scotia",
+        "Halifax",
+        "government"
+      ],
+      "category": "places",
+      "verification": {
+        "checked_at": "2026-11-25T13:26:31Z",
+        "fetched_at": "2026-11-25T13:26:35.232Z",
+        "format": "RSS",
+        "entry_count": 33,
+        "latest_entry_at": "2026-11-20T21:20:28Z"
+      }
+    },
+    {
+      "id": "releasereceipt-all",
+      "title": "Release Receipt · StatCan watchlist",
+      "url": "https://raw.githubusercontent.com/jsdyer/releasereceipt/main/web/feed.xml",
+      "site": "https://coolcode.ca/releasereceipt/",
+      "description": "Newly captured releases and revisions in CoolCode’s Statistics Canada CPI and earnings watchlist.",
+      "tags": [
+        "Canada",
+        "Statistics Canada",
+        "StatCan",
+        "CPI",
+        "inflation",
+        "earnings",
+        "revisions"
+      ],
+      "category": "money",
+      "verification": {
+        "checked_at": "2026-11-25T13:26:31Z",
+        "fetched_at": "2026-11-25T13:20:19.025Z",
+        "format": "RSS",
+        "entry_count": 25,
+        "latest_entry_at": "2026-11-25T13:12:17Z"
+      }
+    },
+    {
+      "id": "releasereceipt-v41690973",
+      "title": "Release Receipt · Canada CPI",
+      "url": "https://raw.githubusercontent.com/jsdyer/releasereceipt/main/web/feeds/v41690973.xml",
+      "site": "https://coolcode.ca/releasereceipt/",
+      "description": "Captured releases and revisions for Canada all-items consumer prices from Statistics Canada. Produced by CoolCode.",
+      "tags": [
+        "Canada",
+        "Statistics Canada",
+        "StatCan",
+        "CPI",
+        "inflation"
+      ],
+      "category": "money",
+      "verification": {
+        "checked_at": "2026-11-25T13:26:35Z",
+        "fetched_at": "2026-11-25T13:26:38.610Z",
+        "format": "RSS",
+        "entry_count": 1,
+        "latest_entry_at": "2026-11-25T13:12:17Z"
+      }
+    },
+    {
+      "id": "releasereceipt-v41691513",
+      "title": "Release Receipt · Nova Scotia CPI",
+      "url": "https://raw.githubusercontent.com/jsdyer/releasereceipt/main/web/feeds/v41691513.xml",
+      "site": "https://coolcode.ca/releasereceipt/",
+      "description": "Captured releases and revisions for Nova Scotia all-items consumer prices from Statistics Canada. Produced by CoolCode.",
+      "tags": [
+        "Nova Scotia",
+        "Statistics Canada",
+        "StatCan",
+        "CPI",
+        "inflation"
+      ],
+      "category": "money",
+      "verification": {
+        "checked_at": "2026-11-25T13:26:35Z",
+        "fetched_at": "2026-11-25T13:26:38.627Z",
+        "format": "RSS",
+        "entry_count": 1,
+        "latest_entry_at": "2026-11-25T13:12:17Z"
+      }
+    },
+    {
+      "id": "releasereceipt-v41692462",
+      "title": "Release Receipt · British Columbia CPI",
+      "url": "https://raw.githubusercontent.com/jsdyer/releasereceipt/main/web/feeds/v41692462.xml",
+      "site": "https://coolcode.ca/releasereceipt/",
+      "description": "Captured releases and revisions for British Columbia all-items consumer prices from Statistics Canada. Produced by CoolCode.",
+      "tags": [
+        "British Columbia",
+        "Statistics Canada",
+        "StatCan",
+        "CPI",
+        "inflation"
+      ],
+      "category": "money",
+      "verification": {
+        "checked_at": "2026-11-25T13:26:35Z",
+        "fetched_at": "2026-11-25T13:26:38.602Z",
+        "format": "RSS",
+        "entry_count": 1,
+        "latest_entry_at": "2026-11-25T13:12:17Z"
+      }
+    },
+    {
+      "id": "releasereceipt-v79311153",
+      "title": "Release Receipt · Canada earnings",
+      "url": "https://raw.githubusercontent.com/jsdyer/releasereceipt/main/web/feeds/v79311153.xml",
+      "site": "https://coolcode.ca/releasereceipt/",
+      "description": "Captured releases and revisions for Canada average weekly earnings from Statistics Canada. Produced by CoolCode.",
+      "tags": [
+        "Canada",
+        "Statistics Canada",
+        "StatCan",
+        "earnings",
+        "wages"
+      ],
+      "category": "money",
+      "verification": {
+        "checked_at": "2026-11-25T13:26:38Z",
+        "fetched_at": "2026-11-25T13:26:42.348Z",
+        "format": "RSS",
+        "entry_count": 1,
+        "latest_entry_at": "2026-11-25T13:12:17Z"
+      }
+    },
+    {
+      "id": "releasereceipt-v79311231",
+      "title": "Release Receipt · Nova Scotia earnings",
+      "url": "https://raw.githubusercontent.com/jsdyer/releasereceipt/main/web/feeds/v79311231.xml",
+      "site": "https://coolcode.ca/releasereceipt/",
+      "description": "Captured releases and revisions for Nova Scotia average weekly earnings from Statistics Canada. Produced by CoolCode.",
+      "tags": [
+        "Nova Scotia",
+        "Statistics Canada",
+        "StatCan",
+        "earnings",
+        "wages"
+      ],
+      "category": "money",
+      "verification": {
+        "checked_at": "2026-11-25T13:26:38Z",
+        "fetched_at": "2026-11-25T13:26:42.358Z",
+        "format": "RSS",
+        "entry_count": 1,
+        "latest_entry_at": "2026-11-25T13:12:17Z"
+      }
+    },
+    {
+      "id": "releasereceipt-v79311413",
+      "title": "Release Receipt · British Columbia earnings",
+      "url": "https://raw.githubusercontent.com/jsdyer/releasereceipt/main/web/feeds/v79311413.xml",
+      "site": "https://coolcode.ca/releasereceipt/",
+      "description": "Captured releases and revisions for British Columbia average weekly earnings from Statistics Canada. Produced by CoolCode.",
+      "tags": [
+        "British Columbia",
+        "Statistics Canada",
+        "StatCan",
+        "earnings",
+        "wages"
+      ],
+      "category": "money",
+      "verification": {
+        "checked_at": "2026-11-25T13:26:38Z",
+        "fetched_at": "2026-11-25T13:26:42.368Z",
+        "format": "RSS",
+        "entry_count": 1,
+        "latest_entry_at": "2026-11-25T13:12:17Z"
       }
     }
   ]

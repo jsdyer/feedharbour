@@ -30,3 +30,13 @@ test('unverified, unsafe, duplicate and unknown-category recommendations fail cl
  for(const change of [{url:'javascript:alert(1)'},{site:'http://example.org/'},{category:'unknown'},{verification:null},{verification:{...raw.feeds[0].verification,entry_count:0}},{verification:{...raw.feeds[0].verification,format:'HTML'}}]){const r=structuredClone(raw);r.feeds[0]={...r.feeds[0],...change};assert.throws(()=>normalizeDirectory(r));}
  const duplicate=structuredClone(raw);duplicate.feeds.push({...duplicate.feeds[0],id:'different-id'});assert.throws(()=>normalizeDirectory(duplicate));
 });
+
+test('CoolCode revision and StatCan subscriptions preserve an existing private workspace',()=>{
+ const candidateIds=directory.feeds.filter(f=>f.id.startsWith('civicrevision-')||f.id.startsWith('releasereceipt-')).map(f=>f.id);
+ assert.ok(candidateIds.length>=2);
+ const source=addFeeds(emptyWorkspace(),directorySubscriptions(directory,[directory.feeds[0].id])).workspace;
+ source.feeds[0].folder='Personal local news';const before=structuredClone(source);
+ const result=addFeeds(source,directorySubscriptions(directory,candidateIds));
+ assert.equal(result.added,candidateIds.length);assert.deepEqual(source,before);assert.equal(result.workspace.feeds[0].folder,'Personal local news');assert.equal(result.workspace.items.length,0);
+ for(const f of directory.feeds.filter(f=>candidateIds.includes(f.id))){assert.ok(f.url.startsWith('https://raw.githubusercontent.com/jsdyer/'));assert.ok(f.site.startsWith('https://coolcode.ca/'));}
+});

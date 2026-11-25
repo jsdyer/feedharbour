@@ -3,7 +3,7 @@
 [Open Feed Harbour](https://coolcode.ca/feedharbour/) — read public RSS and Atom feeds in one calm workspace, organize them into folders and keep a private reading list. It runs as a static browser app with a shared public-feed gateway. No account, subscription, API key or app-specific scheduled collector is required.
 
 <!-- coolcode:guide -->
-Browse checked RSS feeds across CoolCode's topics, including British Columbia and Nova Scotia news, public records, Linux, networks, space, money and culture. Add one source or a topic pack, then choose Refresh; browsing or subscribing does not fetch articles automatically. You can still enter any public feed, import OPML or read local RSS/Atom XML privately. Save deliberately on your device or export JSON to keep reading state; OPML exports subscriptions and folders. Failed refreshes keep the last good items visible.
+Browse checked RSS feeds across CoolCode's topics, including British Columbia and Nova Scotia news, public records, Linux, networks, space, money and culture. CoolCode’s Civic Revision and Release Receipt feeds cover Wikipedia revisions and Statistics Canada releases. Add one source or a topic pack, then choose Refresh; browsing or subscribing does not fetch articles automatically. You can still enter any public feed, import OPML or read local RSS/Atom XML privately. Save deliberately on your device or export JSON to keep reading state; OPML exports subscriptions and folders. Failed refreshes keep the last good items visible.
 <!-- /coolcode:guide -->
 
 ## Start reading
@@ -68,6 +68,8 @@ The response URL is the final validated publisher URL and is used to resolve rel
 ## Feed directory and verification
 
 `web/data/feed-directory.json` contains the public recommendations and all nine existing CoolCode topic names. It is fetched locally on page load; no publisher is contacted to browse or search it. The page shows twelve recommendations initially, with **Show more**, a search box and a topic selector. Single-feed buttons show Added for existing subscriptions. Adding a topic pack is an explicit action, and there is no add-everything default or automatic refresh. The directory can be hidden while reading.
+
+The directory also includes Civic Revision’s aggregate and four topic feeds, plus Release Receipt’s aggregate and Canada/BC/NS CPI and earnings feeds. Search `Civic Revision` or `Release Receipt` to find them; subscribing remains an explicit action. These are CoolCode-produced feeds based on the named public sources, not official publisher feeds. Their subscription URLs use the raw GitHub copies of the published XML, which work through the existing gateway; their source-page links remain on CoolCode. These public source URLs avoid self-proxying and work independently of Cloudflare allowlist changes. Existing subscriptions are not migrated or rewritten.
 
 Every listed feed passed an actual HTTP GET through the same deployed gateway the reader uses and parsed as a supported RSS/Atom document with a nonempty title and entries. This is a manually reviewed directory, not a continuous uptime guarantee. The visible review/check dates refer to that verification, while each workspace still displays its own actual fetched and publisher dates. Format, entry count and latest dated entry at verification are available in each card's details. Unknown entry dates remain unknown.
 
