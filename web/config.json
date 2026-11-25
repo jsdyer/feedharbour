@@ -1,15 +1,3 @@
 {
-  "gateway": "https://coolcode-visitor-api.jeffdyer.workers.dev/api/feedharbour/feed",
-  "starterFeeds": [
-    {
-      "url": "https://www.nasa.gov/news-release/feed/",
-      "title": "NASA news releases",
-      "folder": "Space"
-    },
-    {
-      "url": "https://api.io.canada.ca/io-server/gc/news/en/v2?atomtitle=National+News&format=atom&orderBy=desc&pick=100&publishedDate%3E=2021-10-25&sort=publishedDate",
-      "title": "Government of Canada \u2014 National news",
-      "folder": "Canada"
-    }
-  ]
+  "gateway": "https://coolcode-visitor-api.jeffdyer.workers.dev/api/feedharbour/feed"
 }

@@ -59,3 +59,14 @@
   last-good data on failure. Retain feed/article identities and reading flags across refresh.
 - Treat publisher dates and successful capture dates separately. Fixtures are not live news.
 - Keep arbitrary visitor subscriptions independent of the optional starter list.
+
+## Curated feed directory
+
+- Keep recommendations in web/data/feed-directory.json, using the existing nine CoolCode
+  categories. Counts, filters and subscriptions must derive from the current list.
+- A recommendation must pass scripts/check_feeds.py through the production gateway with
+  parsed nonempty RSS/Atom, not just return HTTP200. Commit docs/feed-validation.json and
+  the honest check metadata. Never turn an unverified/failed feed into a successful record.
+- Browsing, individual subscriptions and topic packs do not fetch publishers or save
+  automatically. Preserve arbitrary URLs, OPML and local XML as independent entry points.
+- This is manually checked directory maintenance, not a scheduled feed collector.

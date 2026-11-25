@@ -1,7 +1,7 @@
 {
   "id": "feedharbour",
   "title": "Feed Harbour",
-  "description": "Read public RSS and Atom feeds together, filter headlines, and keep a private reading list.",
+  "description": "Discover RSS feeds by topic, read headlines together, and keep a private reading list.",
   "category": "media",
   "tags": [
     "RSS",
@@ -9,7 +9,9 @@
     "OPML",
     "news",
     "reader",
-    "feeds"
+    "feeds",
+    "directory",
+    "Canada"
   ],
   "icon": "film",
   "url": "/feedharbour/",
@@ -18,6 +20,6 @@
   "access": "browser",
   "data_info": {
     "mode": "mixed",
-    "detail": "Your public RSS/Atom feeds are fetched on demand through the CoolCode gateway. Local XML, subscriptions and reading state stay in the browser unless you deliberately save or export them."
+    "detail": "Manually checked feed recommendations and your own RSS/Atom sources. Public feeds load on demand; local XML and reading state stay in your browser unless saved or exported."
   }
 }

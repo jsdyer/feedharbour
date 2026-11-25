@@ -1,0 +1,1004 @@
+{
+  "reviewed_at": "2026-11-25T06:38:20.471176Z",
+  "note": "Candidate discovery and rejected checks; not a live outage claim. Only entries passing the separate feed-validation report enter the directory.",
+  "canada_source_checks": [
+    {
+      "id": "bc-gov",
+      "title": "BC Government News",
+      "url": "https://news.gov.bc.ca/feed",
+      "site": "https://news.gov.bc.ca/",
+      "topic": "explorers",
+      "description": "Provincial announcements, services and policy updates across British Columbia.",
+      "tags": [
+        "British Columbia",
+        "government",
+        "local"
+      ],
+      "discovered_at": "https://news.gov.bc.ca/connect",
+      "checked_at": "2026-11-25T06:36:48.002875Z",
+      "gateway_fetched_at": "2026-11-25T06:36:56.564Z",
+      "attempts": [
+        {
+          "route": "publisher",
+          "status": 200,
+          "finalURL": "https://news.gov.bc.ca/feed",
+          "content_type": "application/rss+xml",
+          "rootformat": "RSS",
+          "feedtitle": "BC Gov News",
+          "itemcount": 10,
+          "newestpublished": "2026-11-25T01:55:00Z",
+          "xml_bytes": 7172,
+          "sha256": "9bddf298ed80fa7d35e5e8ea89af211cfb73af8da527ee40aec94bb48493093b"
+        },
+        {
+          "route": "gateway",
+          "status": 200,
+          "finalURL": "https://news.gov.bc.ca/feed",
+          "content_type": "application/json; charset=utf-8",
+          "rootformat": "RSS",
+          "feedtitle": "BC Gov News",
+          "itemcount": 10,
+          "newestpublished": "2026-11-25T01:55:00Z",
+          "xml_bytes": 7169,
+          "sha256": "041e853b51ce3ab9f293a10b91df8d13808f204457ba06f63730f0da83e2a348"
+        }
+      ],
+      "HTTPstatus": 200,
+      "finalURL": "https://news.gov.bc.ca/feed",
+      "verificationroute": "gateway",
+      "rootformat": "RSS",
+      "feedtitle": "BC Gov News",
+      "itemcount": 10,
+      "newestpublished": "2026-11-25T01:55:00Z",
+      "xml_bytes": 7169,
+      "sha256": "041e853b51ce3ab9f293a10b91df8d13808f204457ba06f63730f0da83e2a348"
+    },
+    {
+      "id": "global-halifax",
+      "title": "Global News Halifax",
+      "url": "https://globalnews.ca/halifax/feed/",
+      "site": "https://globalnews.ca/halifax/",
+      "topic": "places",
+      "description": "Halifax and Nova Scotia news, local events and community reporting.",
+      "tags": [
+        "Nova Scotia",
+        "Halifax",
+        "local news"
+      ],
+      "discovered_at": "https://globalnews.ca/halifax/",
+      "checked_at": "2026-11-25T06:36:48.006007Z",
+      "gateway_fetched_at": "2026-11-25T06:36:56.182Z",
+      "attempts": [
+        {
+          "route": "publisher",
+          "status": 200,
+          "finalURL": "https://globalnews.ca/halifax/feed/",
+          "content_type": "application/rss+xml; charset=UTF-8",
+          "rootformat": "RSS",
+          "feedtitle": ": Halifax",
+          "itemcount": 10,
+          "newestpublished": "2026-11-24T20:57:07Z",
+          "xml_bytes": 19884,
+          "sha256": "e8fe2eb787f3127441d5fa6960ea6d64119472ac7a17296485f8e577f2c15414"
+        },
+        {
+          "route": "gateway",
+          "status": 200,
+          "finalURL": "https://globalnews.ca/halifax/feed/",
+          "content_type": "application/json; charset=utf-8",
+          "rootformat": "RSS",
+          "feedtitle": ": Halifax",
+          "itemcount": 10,
+          "newestpublished": "2026-11-24T20:57:07Z",
+          "xml_bytes": 19884,
+          "sha256": "e8fe2eb787f3127441d5fa6960ea6d64119472ac7a17296485f8e577f2c15414"
+        }
+      ],
+      "HTTPstatus": 200,
+      "finalURL": "https://globalnews.ca/halifax/feed/",
+      "verificationroute": "gateway",
+      "rootformat": "RSS",
+      "feedtitle": ": Halifax",
+      "itemcount": 10,
+      "newestpublished": "2026-11-24T20:57:07Z",
+      "xml_bytes": 19884,
+      "sha256": "e8fe2eb787f3127441d5fa6960ea6d64119472ac7a17296485f8e577f2c15414"
+    },
+    {
+      "id": "tyee",
+      "title": "The Tyee",
+      "url": "https://thetyee.ca/rss2.xml",
+      "site": "https://thetyee.ca/",
+      "topic": "media",
+      "description": "Independent British Columbia reporting on public affairs, culture and the environment.",
+      "tags": [
+        "British Columbia",
+        "journalism",
+        "culture"
+      ],
+      "discovered_at": "https://thetyee.ca/RSS/Defined/",
+      "checked_at": "2026-11-25T06:36:56.144522Z",
+      "gateway_fetched_at": "2026-11-25T06:37:00.584Z",
+      "attempts": [
+        {
+          "route": "publisher",
+          "status": 200,
+          "finalURL": "https://thetyee.ca/rss2.xml",
+          "content_type": "text/xml",
+          "rootformat": "RSS",
+          "feedtitle": "The Tyee | BC's home for today's news, analysis and updates",
+          "itemcount": 21,
+          "newestpublished": "2026-11-25T08:40:00Z",
+          "xml_bytes": 39545,
+          "sha256": "0309ad39ee85644fbbd2499e1eb4d589b48163cf56b5d34f86b352f3b2ab28cc"
+        },
+        {
+          "route": "gateway",
+          "status": 200,
+          "finalURL": "https://thetyee.ca/rss2.xml",
+          "content_type": "application/json; charset=utf-8",
+          "rootformat": "RSS",
+          "feedtitle": "The Tyee | BC's home for today's news, analysis and updates",
+          "itemcount": 21,
+          "newestpublished": "2026-11-25T08:40:00Z",
+          "xml_bytes": 39545,
+          "sha256": "0309ad39ee85644fbbd2499e1eb4d589b48163cf56b5d34f86b352f3b2ab28cc"
+        }
+      ],
+      "HTTPstatus": 200,
+      "finalURL": "https://thetyee.ca/rss2.xml",
+      "verificationroute": "gateway",
+      "rootformat": "RSS",
+      "feedtitle": "The Tyee | BC's home for today's news, analysis and updates",
+      "itemcount": 21,
+      "newestpublished": "2026-11-25T08:40:00Z",
+      "xml_bytes": 39545,
+      "sha256": "0309ad39ee85644fbbd2499e1eb4d589b48163cf56b5d34f86b352f3b2ab28cc"
+    },
+    {
+      "id": "boc-news",
+      "title": "Bank of Canada News",
+      "url": "https://www.bankofcanada.ca/utility/news/feed/",
+      "site": "https://www.bankofcanada.ca/",
+      "topic": "money",
+      "description": "Central bank announcements, policy decisions, speeches and research updates.",
+      "tags": [
+        "Canada",
+        "interest rates",
+        "economy"
+      ],
+      "discovered_at": "https://www.bankofcanada.ca/rss-feeds/",
+      "checked_at": "2026-11-25T06:36:56.250397Z",
+      "gateway_fetched_at": "2026-11-25T06:37:03.430Z",
+      "attempts": [
+        {
+          "route": "publisher",
+          "status": 200,
+          "finalURL": "https://www.bankofcanada.ca/utility/news/feed/",
+          "content_type": "application/rss+xml; charset=UTF-8",
+          "rootformat": "RSS 1.0",
+          "feedtitle": "News - Bank of Canada",
+          "itemcount": 10,
+          "newestpublished": "2026-11-24T12:35:21Z",
+          "xml_bytes": 13463,
+          "sha256": "a900cc9802042066bb84452f541adb500db489ad4f2e153fe273a5a9bb91334f"
+        },
+        {
+          "route": "gateway",
+          "status": 200,
+          "finalURL": "https://www.bankofcanada.ca/utility/news/feed/",
+          "content_type": "application/json; charset=utf-8",
+          "rootformat": "RSS 1.0",
+          "feedtitle": "News - Bank of Canada",
+          "itemcount": 10,
+          "newestpublished": "2026-11-24T12:35:21Z",
+          "xml_bytes": 13463,
+          "sha256": "a900cc9802042066bb84452f541adb500db489ad4f2e153fe273a5a9bb91334f"
+        }
+      ],
+      "HTTPstatus": 200,
+      "finalURL": "https://www.bankofcanada.ca/utility/news/feed/",
+      "verificationroute": "gateway",
+      "rootformat": "RSS 1.0",
+      "feedtitle": "News - Bank of Canada",
+      "itemcount": 10,
+      "newestpublished": "2026-11-24T12:35:21Z",
+      "xml_bytes": 13463,
+      "sha256": "a900cc9802042066bb84452f541adb500db489ad4f2e153fe273a5a9bb91334f"
+    },
+    {
+      "id": "boc-explainers",
+      "title": "Bank of Canada: The Economy, Plain and Simple",
+      "url": "https://www.bankofcanada.ca/content_type/EPS/feed/",
+      "site": "https://www.bankofcanada.ca/the-economy-plain-and-simple/",
+      "topic": "money",
+      "description": "Accessible explanations of inflation, interest rates and how the Canadian economy works.",
+      "tags": [
+        "Canada",
+        "economics",
+        "explainers"
+      ],
+      "discovered_at": "https://www.bankofcanada.ca/rss-feeds/",
+      "checked_at": "2026-11-25T06:36:56.380500Z",
+      "gateway_fetched_at": "2026-11-25T06:37:03.429Z",
+      "attempts": [
+        {
+          "route": "publisher",
+          "status": 200,
+          "finalURL": "https://www.bankofcanada.ca/content_type/EPS/feed/",
+          "content_type": "application/rss+xml; charset=UTF-8",
+          "rootformat": "RSS 1.0",
+          "feedtitle": "The Economy, Plain and Simple - Bank of Canada",
+          "itemcount": 10,
+          "newestpublished": "2026-10-08T14:30:55Z",
+          "xml_bytes": 10679,
+          "sha256": "c0cb67423702aab7af04d8c31caa92809621eabd38cb3bcf1773bada84908cca"
+        },
+        {
+          "route": "gateway",
+          "status": 200,
+          "finalURL": "https://www.bankofcanada.ca/content_type/EPS/feed/",
+          "content_type": "application/json; charset=utf-8",
+          "rootformat": "RSS 1.0",
+          "feedtitle": "The Economy, Plain and Simple - Bank of Canada",
+          "itemcount": 10,
+          "newestpublished": "2026-10-08T14:30:55Z",
+          "xml_bytes": 10679,
+          "sha256": "c0cb67423702aab7af04d8c31caa92809621eabd38cb3bcf1773bada84908cca"
+        }
+      ],
+      "HTTPstatus": 200,
+      "finalURL": "https://www.bankofcanada.ca/content_type/EPS/feed/",
+      "verificationroute": "gateway",
+      "rootformat": "RSS 1.0",
+      "feedtitle": "The Economy, Plain and Simple - Bank of Canada",
+      "itemcount": 10,
+      "newestpublished": "2026-10-08T14:30:55Z",
+      "xml_bytes": 10679,
+      "sha256": "c0cb67423702aab7af04d8c31caa92809621eabd38cb3bcf1773bada84908cca"
+    },
+    {
+      "id": "moneysense",
+      "title": "MoneySense",
+      "url": "https://www.moneysense.ca/feed/",
+      "site": "https://www.moneysense.ca/",
+      "topic": "money",
+      "description": "Canadian personal-finance articles about saving, mortgages, taxes and investing.",
+      "tags": [
+        "Canada",
+        "personal finance",
+        "money"
+      ],
+      "discovered_at": "https://www.moneysense.ca/",
+      "checked_at": "2026-11-25T06:36:56.731483Z",
+      "gateway_fetched_at": "2026-11-25T06:37:03.429Z",
+      "attempts": [
+        {
+          "route": "publisher",
+          "status": 200,
+          "finalURL": "https://www.moneysense.ca/feed/",
+          "content_type": "application/rss+xml; charset=UTF-8",
+          "rootformat": "RSS",
+          "feedtitle": "MoneySense",
+          "itemcount": 9,
+          "newestpublished": "2026-11-24T21:16:58Z",
+          "xml_bytes": 285638,
+          "sha256": "9969f02cc7f776d5ffd0622d96e1bdecde33001660ef9b2493fd4f333ae6ba85"
+        },
+        {
+          "route": "gateway",
+          "status": 200,
+          "finalURL": "https://www.moneysense.ca/feed/",
+          "content_type": "application/json; charset=utf-8",
+          "rootformat": "RSS",
+          "feedtitle": "MoneySense",
+          "itemcount": 9,
+          "newestpublished": "2026-11-24T21:16:58Z",
+          "xml_bytes": 285282,
+          "sha256": "4c6ecdd5f8d55cc43c661696044bd3d68eb9c173d04e8025370d8670e675f288"
+        }
+      ],
+      "HTTPstatus": 200,
+      "finalURL": "https://www.moneysense.ca/feed/",
+      "verificationroute": "gateway",
+      "rootformat": "RSS",
+      "feedtitle": "MoneySense",
+      "itemcount": 9,
+      "newestpublished": "2026-11-24T21:16:58Z",
+      "xml_bytes": 285282,
+      "sha256": "4c6ecdd5f8d55cc43c661696044bd3d68eb9c173d04e8025370d8670e675f288"
+    },
+    {
+      "id": "opc-pipeda",
+      "title": "Privacy Commissioner: PIPEDA Findings",
+      "url": "https://www.priv.gc.ca/en/rss/pipeda/",
+      "site": "https://www.priv.gc.ca/",
+      "topic": "disclosures",
+      "description": "Published private-sector privacy investigation findings and case summaries.",
+      "tags": [
+        "privacy",
+        "Canada",
+        "investigations"
+      ],
+      "discovered_at": "https://www.priv.gc.ca/en/rss-feeds/",
+      "checked_at": "2026-11-25T06:37:00.791682Z",
+      "gateway_fetched_at": "2026-11-25T06:37:09.523Z",
+      "attempts": [
+        {
+          "route": "publisher",
+          "status": 200,
+          "finalURL": "https://www.priv.gc.ca/en/rss/pipeda/",
+          "content_type": "application/rss+xml; charset=UTF-8",
+          "rootformat": "RSS",
+          "feedtitle": "Findings under PIPEDA",
+          "itemcount": 174,
+          "newestpublished": "2026-10-21T05:00:00Z",
+          "xml_bytes": 102983,
+          "sha256": "2303453f8b29cf9baffe64abd75057e9d9fe456363cd5c4b83eb696dd46d689d"
+        },
+        {
+          "route": "gateway",
+          "status": 200,
+          "finalURL": "https://www.priv.gc.ca/en/rss/pipeda/",
+          "content_type": "application/json; charset=utf-8",
+          "rootformat": "RSS",
+          "feedtitle": "Findings under PIPEDA",
+          "itemcount": 174,
+          "newestpublished": "2026-10-21T05:00:00Z",
+          "xml_bytes": 102983,
+          "sha256": "2303453f8b29cf9baffe64abd75057e9d9fe456363cd5c4b83eb696dd46d689d"
+        }
+      ],
+      "HTTPstatus": 200,
+      "finalURL": "https://www.priv.gc.ca/en/rss/pipeda/",
+      "verificationroute": "gateway",
+      "rootformat": "RSS",
+      "feedtitle": "Findings under PIPEDA",
+      "itemcount": 174,
+      "newestpublished": "2026-10-21T05:00:00Z",
+      "xml_bytes": 102983,
+      "sha256": "2303453f8b29cf9baffe64abd75057e9d9fe456363cd5c4b83eb696dd46d689d"
+    },
+    {
+      "id": "opc-privacy-act",
+      "title": "Privacy Commissioner: Privacy Act Findings",
+      "url": "https://www.priv.gc.ca/en/rss/pa/",
+      "site": "https://www.priv.gc.ca/",
+      "topic": "disclosures",
+      "description": "Published federal-government privacy investigation findings and reports.",
+      "tags": [
+        "privacy",
+        "Canada",
+        "government accountability"
+      ],
+      "discovered_at": "https://www.priv.gc.ca/en/rss-feeds/",
+      "checked_at": "2026-11-25T06:37:03.615894Z",
+      "gateway_fetched_at": "2026-11-25T06:37:09.421Z",
+      "attempts": [
+        {
+          "route": "publisher",
+          "status": 200,
+          "finalURL": "https://www.priv.gc.ca/en/rss/pa/",
+          "content_type": "application/rss+xml; charset=UTF-8",
+          "rootformat": "RSS",
+          "feedtitle": "Findings under the Privacy Act",
+          "itemcount": 138,
+          "newestpublished": "2026-05-07T05:00:00Z",
+          "xml_bytes": 79498,
+          "sha256": "34f46d58e6f68c7a181af6cb9811c4632e9d4ee49e0184445c1fb570fdd73f42"
+        },
+        {
+          "route": "gateway",
+          "status": 200,
+          "finalURL": "https://www.priv.gc.ca/en/rss/pa/",
+          "content_type": "application/json; charset=utf-8",
+          "rootformat": "RSS",
+          "feedtitle": "Findings under the Privacy Act",
+          "itemcount": 138,
+          "newestpublished": "2026-05-07T05:00:00Z",
+          "xml_bytes": 79498,
+          "sha256": "34f46d58e6f68c7a181af6cb9811c4632e9d4ee49e0184445c1fb570fdd73f42"
+        }
+      ],
+      "HTTPstatus": 200,
+      "finalURL": "https://www.priv.gc.ca/en/rss/pa/",
+      "verificationroute": "gateway",
+      "rootformat": "RSS",
+      "feedtitle": "Findings under the Privacy Act",
+      "itemcount": 138,
+      "newestpublished": "2026-05-07T05:00:00Z",
+      "xml_bytes": 79498,
+      "sha256": "34f46d58e6f68c7a181af6cb9811c4632e9d4ee49e0184445c1fb570fdd73f42"
+    },
+    {
+      "id": "budget-bytes",
+      "title": "Budget Bytes",
+      "url": "https://www.budgetbytes.com/feed/",
+      "site": "https://www.budgetbytes.com/",
+      "topic": "media",
+      "description": "Budget-friendly recipe ideas and cooking guides from the publisher.",
+      "tags": [
+        "food",
+        "recipes",
+        "budget cooking"
+      ],
+      "discovered_at": "https://www.budgetbytes.com/",
+      "checked_at": "2026-11-25T06:37:03.619326Z",
+      "gateway_fetched_at": "2026-11-25T06:37:12.248Z",
+      "attempts": [
+        {
+          "route": "publisher",
+          "status": 200,
+          "finalURL": "https://www.budgetbytes.com/feed/",
+          "content_type": "application/rss+xml; charset=UTF-8",
+          "rootformat": "RSS",
+          "feedtitle": "Budget Bytes",
+          "itemcount": 10,
+          "newestpublished": "2026-11-23T14:30:00Z",
+          "xml_bytes": 964586,
+          "sha256": "5f3ee3a2fd900db8c6bd8d19922962facce1563cf07e91bb9268d8cfea7e9db2"
+        },
+        {
+          "route": "gateway",
+          "status": 200,
+          "finalURL": "https://www.budgetbytes.com/feed/",
+          "content_type": "application/json; charset=utf-8",
+          "rootformat": "RSS",
+          "feedtitle": "Budget Bytes",
+          "itemcount": 10,
+          "newestpublished": "2026-11-23T14:30:00Z",
+          "xml_bytes": 964590,
+          "sha256": "b27119ff794a2e29a373209135a52c4707167d412a1e72f73295adeca74bc239"
+        }
+      ],
+      "HTTPstatus": 200,
+      "finalURL": "https://www.budgetbytes.com/feed/",
+      "verificationroute": "gateway",
+      "rootformat": "RSS",
+      "feedtitle": "Budget Bytes",
+      "itemcount": 10,
+      "newestpublished": "2026-11-23T14:30:00Z",
+      "xml_bytes": 964590,
+      "sha256": "b27119ff794a2e29a373209135a52c4707167d412a1e72f73295adeca74bc239"
+    },
+    {
+      "id": "canada-news",
+      "title": "Government of Canada: National News",
+      "url": "https://api.io.canada.ca/io-server/gc/news/en/v2?sort=publishedDate&orderBy=desc&publishedDate%3E=2021-10-25&pick=100&format=atom&atomtitle=National%20News",
+      "site": "https://www.canada.ca/en/news.html",
+      "topic": "explorers",
+      "description": "Federal announcements, service updates and news releases from across Canada.",
+      "tags": [
+        "Canada",
+        "government",
+        "national"
+      ],
+      "discovered_at": "https://www.canada.ca/en/news/subscribe-emails.html",
+      "checked_at": "2026-11-25T06:37:03.889514Z",
+      "gateway_fetched_at": "2026-11-25T06:37:09.194Z",
+      "attempts": [
+        {
+          "route": "publisher",
+          "status": 200,
+          "finalURL": "https://api.io.canada.ca/io-server/gc/news/en/v2?sort=publishedDate&orderBy=desc&publishedDate%3E=2021-10-25&pick=100&format=atom&atomtitle=National%20News",
+          "content_type": "application/xml; charset=utf-8",
+          "rootformat": "Atom",
+          "feedtitle": "National News",
+          "itemcount": 100,
+          "newestpublished": "2026-11-24T23:37:17Z",
+          "xml_bytes": 86983,
+          "sha256": "aa08df7d82759f309f1bea374b771f13c0057ed64b0b55f0c5263595254aff6c"
+        },
+        {
+          "route": "gateway",
+          "status": 200,
+          "finalURL": "https://api.io.canada.ca/io-server/gc/news/en/v2?sort=publishedDate&orderBy=desc&publishedDate%3E=2021-10-25&pick=100&format=atom&atomtitle=National%20News",
+          "content_type": "application/json; charset=utf-8",
+          "rootformat": "Atom",
+          "feedtitle": "National News",
+          "itemcount": 100,
+          "newestpublished": "2026-11-24T23:37:17Z",
+          "xml_bytes": 86983,
+          "sha256": "aa08df7d82759f309f1bea374b771f13c0057ed64b0b55f0c5263595254aff6c"
+        }
+      ],
+      "HTTPstatus": 200,
+      "finalURL": "https://api.io.canada.ca/io-server/gc/news/en/v2?sort=publishedDate&orderBy=desc&publishedDate%3E=2021-10-25&pick=100&format=atom&atomtitle=National%20News",
+      "verificationroute": "gateway",
+      "rootformat": "Atom",
+      "feedtitle": "National News",
+      "itemcount": 100,
+      "newestpublished": "2026-11-24T23:37:17Z",
+      "xml_bytes": 86983,
+      "sha256": "aa08df7d82759f309f1bea374b771f13c0057ed64b0b55f0c5263595254aff6c"
+    },
+    {
+      "id": "canada-bc",
+      "title": "Government of Canada: British Columbia",
+      "url": "https://api.io.canada.ca/io-server/gc/news/en/v2?location=bc59&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-10-25&pick=100&format=atom&atomtitle=British%20Columbia",
+      "site": "https://www.canada.ca/en/news.html",
+      "topic": "explorers",
+      "description": "Federal announcements associated with British Columbia.",
+      "tags": [
+        "British Columbia",
+        "government",
+        "Canada"
+      ],
+      "discovered_at": "https://www.canada.ca/en/news/subscribe-emails.html",
+      "checked_at": "2026-11-25T06:37:05.814909Z",
+      "gateway_fetched_at": "2026-11-25T06:37:08.904Z",
+      "attempts": [
+        {
+          "route": "publisher",
+          "status": 200,
+          "finalURL": "https://api.io.canada.ca/io-server/gc/news/en/v2?location=bc59&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-10-25&pick=100&format=atom&atomtitle=British%20Columbia",
+          "content_type": "application/xml; charset=utf-8",
+          "rootformat": "Atom",
+          "feedtitle": "British Columbia",
+          "itemcount": 100,
+          "newestpublished": "2026-11-20T21:13:35Z",
+          "xml_bytes": 85439,
+          "sha256": "1acda402aa291db693a24fbf25f746f8459f6062d06ac0fcb309e4aa42fd0a68"
+        },
+        {
+          "route": "gateway",
+          "status": 200,
+          "finalURL": "https://api.io.canada.ca/io-server/gc/news/en/v2?location=bc59&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-10-25&pick=100&format=atom&atomtitle=British%20Columbia",
+          "content_type": "application/json; charset=utf-8",
+          "rootformat": "Atom",
+          "feedtitle": "British Columbia",
+          "itemcount": 100,
+          "newestpublished": "2026-11-20T21:13:35Z",
+          "xml_bytes": 85439,
+          "sha256": "1acda402aa291db693a24fbf25f746f8459f6062d06ac0fcb309e4aa42fd0a68"
+        }
+      ],
+      "HTTPstatus": 200,
+      "finalURL": "https://api.io.canada.ca/io-server/gc/news/en/v2?location=bc59&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-10-25&pick=100&format=atom&atomtitle=British%20Columbia",
+      "verificationroute": "gateway",
+      "rootformat": "Atom",
+      "feedtitle": "British Columbia",
+      "itemcount": 100,
+      "newestpublished": "2026-11-20T21:13:35Z",
+      "xml_bytes": 85439,
+      "sha256": "1acda402aa291db693a24fbf25f746f8459f6062d06ac0fcb309e4aa42fd0a68"
+    },
+    {
+      "id": "canada-ns",
+      "title": "Government of Canada: Nova Scotia",
+      "url": "https://api.io.canada.ca/io-server/gc/news/en/v2?location=ns12&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-10-25&pick=100&format=atom&atomtitle=Nova%20Scotia",
+      "site": "https://www.canada.ca/en/news.html",
+      "topic": "explorers",
+      "description": "Federal announcements associated with Nova Scotia.",
+      "tags": [
+        "Nova Scotia",
+        "government",
+        "Canada"
+      ],
+      "discovered_at": "https://www.canada.ca/en/news/subscribe-emails.html",
+      "checked_at": "2026-11-25T06:37:09.185983Z",
+      "gateway_fetched_at": "2026-11-25T06:37:17.420Z",
+      "attempts": [
+        {
+          "route": "publisher",
+          "status": 200,
+          "finalURL": "https://api.io.canada.ca/io-server/gc/news/en/v2?location=ns12&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-10-25&pick=100&format=atom&atomtitle=Nova%20Scotia",
+          "content_type": "application/xml; charset=utf-8",
+          "rootformat": "Atom",
+          "feedtitle": "Nova Scotia",
+          "itemcount": 100,
+          "newestpublished": "2026-11-24T15:18:41Z",
+          "xml_bytes": 86448,
+          "sha256": "149e8fa81561dc4c5999f112146287e63a138f4e2b3e3c24c3ac3f7d0bf05d51"
+        },
+        {
+          "route": "gateway",
+          "status": 200,
+          "finalURL": "https://api.io.canada.ca/io-server/gc/news/en/v2?location=ns12&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-10-25&pick=100&format=atom&atomtitle=Nova%20Scotia",
+          "content_type": "application/json; charset=utf-8",
+          "rootformat": "Atom",
+          "feedtitle": "Nova Scotia",
+          "itemcount": 100,
+          "newestpublished": "2026-11-24T15:18:41Z",
+          "xml_bytes": 86448,
+          "sha256": "149e8fa81561dc4c5999f112146287e63a138f4e2b3e3c24c3ac3f7d0bf05d51"
+        }
+      ],
+      "HTTPstatus": 200,
+      "finalURL": "https://api.io.canada.ca/io-server/gc/news/en/v2?location=ns12&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-10-25&pick=100&format=atom&atomtitle=Nova%20Scotia",
+      "verificationroute": "gateway",
+      "rootformat": "Atom",
+      "feedtitle": "Nova Scotia",
+      "itemcount": 100,
+      "newestpublished": "2026-11-24T15:18:41Z",
+      "xml_bytes": 86448,
+      "sha256": "149e8fa81561dc4c5999f112146287e63a138f4e2b3e3c24c3ac3f7d0bf05d51"
+    },
+    {
+      "id": "cfia-news",
+      "title": "Canadian Food Inspection Agency",
+      "url": "https://api.io.canada.ca/io-server/gc/news/en/v2?dept=foodinspectionagency&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-07-23&pick=50&format=atom&atomtitle=Canadian%20Food%20Inspection%20Agency",
+      "site": "https://www.canada.ca/en/news.html",
+      "topic": "explorers",
+      "description": "Food inspection, animal and plant health news; not a complete real-time recall alert service.",
+      "tags": [
+        "food",
+        "Canada",
+        "food safety"
+      ],
+      "discovered_at": "https://www.canada.ca/en/news/subscribe-emails.html",
+      "checked_at": "2026-11-25T06:37:09.385722Z",
+      "gateway_fetched_at": "2026-11-25T06:37:17.416Z",
+      "attempts": [
+        {
+          "route": "publisher",
+          "status": 200,
+          "finalURL": "https://api.io.canada.ca/io-server/gc/news/en/v2?dept=foodinspectionagency&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-07-23&pick=50&format=atom&atomtitle=Canadian%20Food%20Inspection%20Agency",
+          "content_type": "application/xml; charset=utf-8",
+          "rootformat": "Atom",
+          "feedtitle": "Canadian Food Inspection Agency",
+          "itemcount": 50,
+          "newestpublished": "2026-10-23T15:25:19Z",
+          "xml_bytes": 43791,
+          "sha256": "08bcd1145d953d6df7a966720ec4719fd9beb09467eb824d61de27b50e066ff3"
+        },
+        {
+          "route": "gateway",
+          "status": 200,
+          "finalURL": "https://api.io.canada.ca/io-server/gc/news/en/v2?dept=foodinspectionagency&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-07-23&pick=50&format=atom&atomtitle=Canadian%20Food%20Inspection%20Agency",
+          "content_type": "application/json; charset=utf-8",
+          "rootformat": "Atom",
+          "feedtitle": "Canadian Food Inspection Agency",
+          "itemcount": 50,
+          "newestpublished": "2026-10-23T15:25:19Z",
+          "xml_bytes": 43791,
+          "sha256": "08bcd1145d953d6df7a966720ec4719fd9beb09467eb824d61de27b50e066ff3"
+        }
+      ],
+      "HTTPstatus": 200,
+      "finalURL": "https://api.io.canada.ca/io-server/gc/news/en/v2?dept=foodinspectionagency&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-07-23&pick=50&format=atom&atomtitle=Canadian%20Food%20Inspection%20Agency",
+      "verificationroute": "gateway",
+      "rootformat": "Atom",
+      "feedtitle": "Canadian Food Inspection Agency",
+      "itemcount": 50,
+      "newestpublished": "2026-10-23T15:25:19Z",
+      "xml_bytes": 43791,
+      "sha256": "08bcd1145d953d6df7a966720ec4719fd9beb09467eb824d61de27b50e066ff3"
+    },
+    {
+      "id": "competition-bureau",
+      "title": "Competition Bureau Canada",
+      "url": "https://api.io.canada.ca/io-server/gc/news/en/v2?dept=competitionbureau&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-07-23&pick=50&format=atom&atomtitle=Competition%20Bureau%20Canada",
+      "site": "https://www.canada.ca/en/news.html",
+      "topic": "disclosures",
+      "description": "Competition investigations, enforcement announcements and consumer-facing public reports.",
+      "tags": [
+        "Canada",
+        "competition",
+        "consumer protection"
+      ],
+      "discovered_at": "https://www.canada.ca/en/news/subscribe-emails.html",
+      "checked_at": "2026-11-25T06:37:09.613516Z",
+      "gateway_fetched_at": "2026-11-25T06:37:17.398Z",
+      "attempts": [
+        {
+          "route": "publisher",
+          "status": 200,
+          "finalURL": "https://api.io.canada.ca/io-server/gc/news/en/v2?dept=competitionbureau&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-07-23&pick=50&format=atom&atomtitle=Competition%20Bureau%20Canada",
+          "content_type": "application/xml; charset=utf-8",
+          "rootformat": "Atom",
+          "feedtitle": "Competition Bureau Canada",
+          "itemcount": 50,
+          "newestpublished": "2026-11-23T20:23:40Z",
+          "xml_bytes": 40278,
+          "sha256": "60667223126dd1257b896ab8c15d5eb4ca48f8afe9d2ba7aa7368b3c9a4efd22"
+        },
+        {
+          "route": "gateway",
+          "status": 200,
+          "finalURL": "https://api.io.canada.ca/io-server/gc/news/en/v2?dept=competitionbureau&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-07-23&pick=50&format=atom&atomtitle=Competition%20Bureau%20Canada",
+          "content_type": "application/json; charset=utf-8",
+          "rootformat": "Atom",
+          "feedtitle": "Competition Bureau Canada",
+          "itemcount": 50,
+          "newestpublished": "2026-11-23T20:23:40Z",
+          "xml_bytes": 40278,
+          "sha256": "60667223126dd1257b896ab8c15d5eb4ca48f8afe9d2ba7aa7368b3c9a4efd22"
+        }
+      ],
+      "HTTPstatus": 200,
+      "finalURL": "https://api.io.canada.ca/io-server/gc/news/en/v2?dept=competitionbureau&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-07-23&pick=50&format=atom&atomtitle=Competition%20Bureau%20Canada",
+      "verificationroute": "gateway",
+      "rootformat": "Atom",
+      "feedtitle": "Competition Bureau Canada",
+      "itemcount": 50,
+      "newestpublished": "2026-11-23T20:23:40Z",
+      "xml_bytes": 40278,
+      "sha256": "60667223126dd1257b896ab8c15d5eb4ca48f8afe9d2ba7aa7368b3c9a4efd22"
+    },
+    {
+      "id": "fcac-news",
+      "title": "Financial Consumer Agency of Canada",
+      "url": "https://api.io.canada.ca/io-server/gc/news/en/v2?dept=financialconsumeragency&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-07-23&pick=50&format=atom&atomtitle=Financial%20Consumer%20Agency%20of%20Canada",
+      "site": "https://www.canada.ca/en/news.html",
+      "topic": "money",
+      "description": "Official financial-literacy initiatives, consumer protection and banking announcements.",
+      "tags": [
+        "Canada",
+        "personal finance",
+        "banking"
+      ],
+      "discovered_at": "https://www.canada.ca/en/news/subscribe-emails.html",
+      "checked_at": "2026-11-25T06:37:09.825905Z",
+      "gateway_fetched_at": "2026-11-25T06:37:17.377Z",
+      "attempts": [
+        {
+          "route": "publisher",
+          "status": 200,
+          "finalURL": "https://api.io.canada.ca/io-server/gc/news/en/v2?dept=financialconsumeragency&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-07-23&pick=50&format=atom&atomtitle=Financial%20Consumer%20Agency%20of%20Canada",
+          "content_type": "application/xml; charset=utf-8",
+          "rootformat": "Atom",
+          "feedtitle": "Financial Consumer Agency of Canada",
+          "itemcount": 50,
+          "newestpublished": "2026-11-18T21:03:34Z",
+          "xml_bytes": 38634,
+          "sha256": "772b2645f0dd129d6b43669903e721c80c583f13a19b7a40fce6b2805c1a0e16"
+        },
+        {
+          "route": "gateway",
+          "status": 200,
+          "finalURL": "https://api.io.canada.ca/io-server/gc/news/en/v2?dept=financialconsumeragency&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-07-23&pick=50&format=atom&atomtitle=Financial%20Consumer%20Agency%20of%20Canada",
+          "content_type": "application/json; charset=utf-8",
+          "rootformat": "Atom",
+          "feedtitle": "Financial Consumer Agency of Canada",
+          "itemcount": 50,
+          "newestpublished": "2026-11-18T21:03:34Z",
+          "xml_bytes": 38634,
+          "sha256": "772b2645f0dd129d6b43669903e721c80c583f13a19b7a40fce6b2805c1a0e16"
+        }
+      ],
+      "HTTPstatus": 200,
+      "finalURL": "https://api.io.canada.ca/io-server/gc/news/en/v2?dept=financialconsumeragency&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-07-23&pick=50&format=atom&atomtitle=Financial%20Consumer%20Agency%20of%20Canada",
+      "verificationroute": "gateway",
+      "rootformat": "Atom",
+      "feedtitle": "Financial Consumer Agency of Canada",
+      "itemcount": 50,
+      "newestpublished": "2026-11-18T21:03:34Z",
+      "xml_bytes": 38634,
+      "sha256": "772b2645f0dd129d6b43669903e721c80c583f13a19b7a40fce6b2805c1a0e16"
+    },
+    {
+      "id": "parks-canada",
+      "title": "Parks Canada News",
+      "url": "https://api.io.canada.ca/io-server/gc/news/en/v2?dept=parkscanada&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-07-23&pick=50&format=atom&atomtitle=Parks%20Canada",
+      "site": "https://www.canada.ca/en/news.html",
+      "topic": "places",
+      "description": "National parks, historic sites, conservation and visitor-programme announcements.",
+      "tags": [
+        "Canada",
+        "parks",
+        "history",
+        "travel"
+      ],
+      "discovered_at": "https://www.canada.ca/en/news/subscribe-emails.html",
+      "checked_at": "2026-11-25T06:37:12.456031Z",
+      "gateway_fetched_at": "2026-11-25T06:37:17.506Z",
+      "attempts": [
+        {
+          "route": "publisher",
+          "status": 200,
+          "finalURL": "https://api.io.canada.ca/io-server/gc/news/en/v2?dept=parkscanada&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-07-23&pick=50&format=atom&atomtitle=Parks%20Canada",
+          "content_type": "application/xml; charset=utf-8",
+          "rootformat": "Atom",
+          "feedtitle": "Parks Canada",
+          "itemcount": 50,
+          "newestpublished": "2026-10-28T14:18:25Z",
+          "xml_bytes": 37837,
+          "sha256": "7b38c2d6eb3c593cc77e03000f34beb5d39c07e51fd9aa06b51650d4717ed02a"
+        },
+        {
+          "route": "gateway",
+          "status": 200,
+          "finalURL": "https://api.io.canada.ca/io-server/gc/news/en/v2?dept=parkscanada&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-07-23&pick=50&format=atom&atomtitle=Parks%20Canada",
+          "content_type": "application/json; charset=utf-8",
+          "rootformat": "Atom",
+          "feedtitle": "Parks Canada",
+          "itemcount": 50,
+          "newestpublished": "2026-10-28T14:18:25Z",
+          "xml_bytes": 37837,
+          "sha256": "7b38c2d6eb3c593cc77e03000f34beb5d39c07e51fd9aa06b51650d4717ed02a"
+        }
+      ],
+      "HTTPstatus": 200,
+      "finalURL": "https://api.io.canada.ca/io-server/gc/news/en/v2?dept=parkscanada&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-07-23&pick=50&format=atom&atomtitle=Parks%20Canada",
+      "verificationroute": "gateway",
+      "rootformat": "Atom",
+      "feedtitle": "Parks Canada",
+      "itemcount": 50,
+      "newestpublished": "2026-10-28T14:18:25Z",
+      "xml_bytes": 37837,
+      "sha256": "7b38c2d6eb3c593cc77e03000f34beb5d39c07e51fd9aa06b51650d4717ed02a"
+    },
+    {
+      "id": "canada-travel",
+      "title": "Government of Canada: Travel",
+      "url": "https://api.io.canada.ca/io-server/gc/news/en/v2?subject=travel&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-10-25&pick=100&format=atom&atomtitle=travel",
+      "site": "https://www.canada.ca/en/news.html",
+      "topic": "places",
+      "description": "Federal travel-related announcements and public information; check destination advisories separately.",
+      "tags": [
+        "Canada",
+        "travel",
+        "government"
+      ],
+      "discovered_at": "https://www.canada.ca/en/news/subscribe-emails.html",
+      "checked_at": "2026-11-25T06:37:17.609147Z",
+      "gateway_fetched_at": "2026-11-25T06:37:24.277Z",
+      "attempts": [
+        {
+          "route": "publisher",
+          "status": 200,
+          "finalURL": "https://api.io.canada.ca/io-server/gc/news/en/v2?subject=travel&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-10-25&pick=100&format=atom&atomtitle=travel",
+          "content_type": "application/xml; charset=utf-8",
+          "rootformat": "Atom",
+          "feedtitle": "travel",
+          "itemcount": 55,
+          "newestpublished": "2026-10-06T14:00:05Z",
+          "xml_bytes": 46717,
+          "sha256": "12461c5f7a876afbdd4b8bdf8878d0e85af732aa9ea1bea4f358ca1b3e607a3e"
+        },
+        {
+          "route": "gateway",
+          "status": 200,
+          "finalURL": "https://api.io.canada.ca/io-server/gc/news/en/v2?subject=travel&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-10-25&pick=100&format=atom&atomtitle=travel",
+          "content_type": "application/json; charset=utf-8",
+          "rootformat": "Atom",
+          "feedtitle": "travel",
+          "itemcount": 55,
+          "newestpublished": "2026-10-06T14:00:05Z",
+          "xml_bytes": 46717,
+          "sha256": "12461c5f7a876afbdd4b8bdf8878d0e85af732aa9ea1bea4f358ca1b3e607a3e"
+        }
+      ],
+      "HTTPstatus": 200,
+      "finalURL": "https://api.io.canada.ca/io-server/gc/news/en/v2?subject=travel&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-10-25&pick=100&format=atom&atomtitle=travel",
+      "verificationroute": "gateway",
+      "rootformat": "Atom",
+      "feedtitle": "travel",
+      "itemcount": 55,
+      "newestpublished": "2026-10-06T14:00:05Z",
+      "xml_bytes": 46717,
+      "sha256": "12461c5f7a876afbdd4b8bdf8878d0e85af732aa9ea1bea4f358ca1b3e607a3e"
+    }
+  ],
+  "excluded_candidates": [
+    {
+      "id": "debian-news",
+      "url": "https://www.debian.org/News/news",
+      "checked_at": "2026-11-25T06:36:12Z",
+      "error": "HTTP Error 502: Bad Gateway"
+    },
+    {
+      "id": "nasa-apod",
+      "url": "https://science.nasa.gov/feed/apod-basic/",
+      "checked_at": "2026-11-25T06:36:32Z",
+      "error": "HTTP Error 502: Bad Gateway"
+    },
+    {
+      "id": "esa-science",
+      "url": "https://www.esa.int/rssfeed/Our_Activities/Space_Science",
+      "checked_at": "2026-11-25T06:36:32Z",
+      "error": "HTTP Error 502: Bad Gateway"
+    },
+    {
+      "id": "library-congress",
+      "url": "https://blogs.loc.gov/loc/feed/",
+      "checked_at": "2026-11-25T06:36:37Z",
+      "error": "HTTP Error 502: Bad Gateway"
+    },
+    {
+      "id": "ns-gov",
+      "title": "Nova Scotia Government News",
+      "url": "https://novascotia.ca/news/rss/rss.asp",
+      "site": "https://news.novascotia.ca/",
+      "topic": "explorers",
+      "description": "Nova Scotia provincial news releases and public-service announcements.",
+      "tags": [
+        "Nova Scotia",
+        "government",
+        "local"
+      ],
+      "discovered_at": "https://novascotia.ca/news/rss/",
+      "checked_at": "2026-11-25T06:36:48.003730Z",
+      "attempts": [
+        {
+          "route": "publisher",
+          "error": "ParseError: no element found: line 4, column 0"
+        },
+        {
+          "route": "gateway",
+          "error": "HTTPError: HTTP Error 502: Bad Gateway"
+        }
+      ],
+      "error": "Gateway verification failed; not recommended for the app."
+    },
+    {
+      "id": "cbc-bc",
+      "title": "CBC British Columbia",
+      "url": "https://www.cbc.ca/webfeed/rss/rss-canada-britishcolumbia",
+      "site": "https://www.cbc.ca/news/canada/british-columbia",
+      "topic": "places",
+      "description": "British Columbia local headlines and reporting from CBC. Publisher feed is for personal use.",
+      "tags": [
+        "British Columbia",
+        "local news",
+        "CBC"
+      ],
+      "discovered_at": "https://www.cbc.ca/webfeed/rss/rss-canada-britishcolumbia",
+      "checked_at": "2026-11-25T06:36:48.004553Z",
+      "attempts": [
+        {
+          "route": "publisher",
+          "error": "HTTPError: HTTP Error 403: Forbidden"
+        },
+        {
+          "route": "gateway",
+          "error": "HTTPError: HTTP Error 502: Bad Gateway"
+        }
+      ],
+      "error": "Gateway verification failed; not recommended for the app."
+    },
+    {
+      "id": "cbc-ns",
+      "title": "CBC Nova Scotia",
+      "url": "https://www.cbc.ca/webfeed/rss/rss-canada-novascotia",
+      "site": "https://www.cbc.ca/news/canada/nova-scotia",
+      "topic": "places",
+      "description": "Nova Scotia headlines and reporting from CBC. Publisher feed is for personal use.",
+      "tags": [
+        "Nova Scotia",
+        "local news",
+        "CBC"
+      ],
+      "discovered_at": "https://www.cbc.ca/webfeed/rss/rss-canada-novascotia",
+      "checked_at": "2026-11-25T06:36:48.005084Z",
+      "attempts": [
+        {
+          "route": "publisher",
+          "error": "HTTPError: HTTP Error 403: Forbidden"
+        },
+        {
+          "route": "gateway",
+          "error": "HTTPError: HTTP Error 502: Bad Gateway"
+        }
+      ],
+      "error": "Gateway verification failed; not recommended for the app."
+    },
+    {
+      "id": "ns-traffic",
+      "title": "Nova Scotia Traffic Advisories",
+      "url": "https://novascotia.ca/news/rss/traffic.asp",
+      "site": "https://news.novascotia.ca/",
+      "topic": "places",
+      "description": "Official provincial roadwork and traffic advisories; consult live road services for immediate conditions.",
+      "tags": [
+        "Nova Scotia",
+        "roads",
+        "travel"
+      ],
+      "discovered_at": "https://novascotia.ca/news/rss/",
+      "checked_at": "2026-11-25T06:38:03.571700Z",
+      "attempts": [
+        {
+          "route": "publisher",
+          "error": "ParseError: no element found: line 4, column 0"
+        },
+        {
+          "route": "gateway",
+          "error": "HTTPError: HTTP Error 502: Bad Gateway"
+        }
+      ],
+      "error": "Gateway verification failed; not recommended for the app."
+    }
+  ]
+}

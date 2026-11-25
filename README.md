@@ -3,18 +3,18 @@
 [Open Feed Harbour](https://coolcode.ca/feedharbour/) — read public RSS and Atom feeds in one calm workspace, organize them into folders and keep a private reading list. It runs as a static browser app with a shared public-feed gateway. No account, subscription, API key or app-specific scheduled collector is required.
 
 <!-- coolcode:guide -->
-Add a public HTTPS feed, or import an OPML subscription list, then choose Refresh public feeds. For example, put NASA in a Space folder and Canada news in a Canada folder, search a topic, and save useful items for later. Duplicate article links can be grouped without losing their original feed entries. Local RSS/Atom XML can be imported without contacting a publisher. Save explicitly on your device or export JSON to keep content and reading state; OPML exports subscriptions and folders only. A failed refresh keeps the last good items visible.
+Browse checked RSS feeds across CoolCode's topics, including British Columbia and Nova Scotia news, public records, Linux, networks, space, money and culture. Add one source or a topic pack, then choose Refresh; browsing or subscribing does not fetch articles automatically. You can still enter any public feed, import OPML or read local RSS/Atom XML privately. Save deliberately on your device or export JSON to keep reading state; OPML exports subscriptions and folders. Failed refreshes keep the last good items visible.
 <!-- /coolcode:guide -->
 
 ## Start reading
 
-1. Open **Manage feeds**. Paste a public HTTPS RSS/Atom URL and optionally a folder name. This adds a subscription without fetching it. Feed addresses are different from a publisher's normal home page.
+1. Start with the visible **Find feeds for your interests** directory. Search words such as `Nova Scotia`, `DNS`, `Linux` or `food`, or choose one of the nine CoolCode topics. **Add feed** subscribes to one source; **Add feeds in this topic** adds that whole topic only when you select it. Neither action fetches content. You can also open **Manage feeds** and paste any public HTTPS RSS/Atom URL and an optional folder. Feed addresses differ from normal website home pages.
 2. Select **Refresh public feeds**, or refresh an individual subscription. The selected URL is sent to the CoolCode gateway, which retrieves it from the publisher. Never use authenticated, tokenized, private-network or paid subscriber URLs in this public service.
 3. Read feed-provided summaries. Search is case-insensitive and requires every entered word to occur in the title, summary or source names. Combine it with a folder/feed selector and All, Unread or Saved. Newest/oldest uses the publisher's publication date, or its update date when publication is unknown; undated items remain undated.
 4. **Mark read**, **Mark unread** and **Save for later** affect the displayed duplicate group. Opening a publisher article also marks its displayed group read. Nothing loads the article until you click its link. **Mark shown as read** changes only the currently rendered items, up to the current Show more page.
 5. Save on this browser/device deliberately, or export JSON before closing the tab. A fresh tab starts empty; use Load saved to restore a device save. No automatic restore or save occurs.
 
-For a fully local example, click **Try an invented example**. The bundled example headlines are labelled demonstrations, not news. The optional NASA and Government of Canada starter subscriptions are regular editable sources, not a hardcoded limit on what visitors can follow.
+For a fully local example, click **Try an invented example**. The bundled example headlines are labelled demonstrations, not news. Directory recommendations are optional public subscriptions, not a limit on what visitors can follow. They span all nine existing CoolCode categories, with food/culture under Media and travel/local reporting under Maps, trails & history. Topic packs become ordinary folders; existing subscriptions are not duplicated or moved. If a pack would exceed the 50-feed workspace limit, the entire addition is rejected with an explanation.
 
 ## Imports, exports and retention
 
@@ -65,19 +65,31 @@ Expected successful JSON:
 
 The response URL is the final validated publisher URL and is used to resolve relative links. Production requests omit credentials and the referrer. Non-success status, malformed envelopes, invalid XML, timeout, or capacity limits leave good items intact. CORS must allow the deployed CoolCode origin. If deploying the repository independently, configure your own compatible gateway or use local XML imports; never put private credentials into `config.json`.
 
+## Feed directory and verification
+
+`web/data/feed-directory.json` contains the public recommendations and all nine existing CoolCode topic names. It is fetched locally on page load; no publisher is contacted to browse or search it. The page shows twelve recommendations initially, with **Show more**, a search box and a topic selector. Single-feed buttons show Added for existing subscriptions. Adding a topic pack is an explicit action, and there is no add-everything default or automatic refresh. The directory can be hidden while reading.
+
+Every listed feed passed an actual HTTP GET through the same deployed gateway the reader uses and parsed as a supported RSS/Atom document with a nonempty title and entries. This is a manually reviewed directory, not a continuous uptime guarantee. The visible review/check dates refer to that verification, while each workspace still displays its own actual fetched and publisher dates. Format, entry count and latest dated entry at verification are available in each card's details. Unknown entry dates remain unknown.
+
+The machine-readable results are in `docs/feed-validation.json`, including response status, final URL, format, entry counts, byte size and timestamps. `docs/feed-discovery.json` records publisher discovery sources and excluded candidates. Advertised feeds that failed the deployed gateway or returned empty/invalid XML were excluded, including CBC BC/NS, legacy Nova Scotia news/traffic endpoints, and several moved feed URLs. These are observations at the recorded check time, not claims that the publishers are permanently unavailable.
+
 ## Expand or customize
 
-`web/config.json` contains the public gateway and an arbitrary `starterFeeds` array. To add another optional source, append an object:
+`web/config.json` contains the public gateway address. Add or revise recommendations in `web/data/feed-directory.json`, preserving its `coolcode.feed-directory.v1` schema. Each feed has an ID, title, public HTTPS feed URL, publisher/source page, one existing category ID, a short description, search tags and verification metadata. For example, a new local publisher belongs in `places`, with tags naming its community. Copy an existing entry's shape, give it a new ID and real publisher URL, and run verification before publishing; do not invent verification results.
 
-```json
-{"url":"https://publisher.example.org/feed.xml","title":"My public source","folder":"Local"}
+Run the actual manual network check from the repository root:
+
+```sh
+python3 scripts/check_feeds.py --update-directory
 ```
 
-Use a real public feed URL and verify its XML before publishing. The UI derives source counts and folders from actual subscriptions; it does not require the initial two sources. Visitors can add other feeds and imports without changing the repo. Existing JSON exports preserve their own feeds and captured dates even if starters change. Starter additions do not contact providers until a visitor chooses Refresh.
+This checks the configured feed entries through the production gateway, writes `docs/feed-validation.json`, and updates the directory's verification metadata **only when every feed passes**. The script rejects HTML, malformed/empty XML, DOCTYPE/entities and feeds over the reader's 2 MB limit. `--direct` can diagnose a publisher separately, but a direct-only success is not sufficient to recommend it in the gateway-based reader. Do not replace a healthy public entry with a failed candidate just to raise the count. The report contains metadata, not downloaded article bodies.
 
-The browser model and retention bounds live in `web/model.mjs`; XML parsing in `web/xml.mjs`; UI in `web/app.mjs`. Update fixtures, browser flows and documentation when changing supported formats or identity rules. Saved workspace schemas must remain readable or receive an explicit migration.
+The list, search results, folder options and counts derive from the actual directory, not the initial number of entries. Tests add a recommendation beyond the shipped list and check topic-pack deduplication. Existing visitor JSON exports retain their own source URLs, items and captured dates when recommendations change. No migration or forced subscription occurs.
 
-Run checks, commit and push to `main` to publish code/config changes. There is no data refresh workflow to invoke, API key to enter, or collector guard to register. The shared gateway is maintained separately in the hub; app changes alone cannot deploy gateway changes.
+Browser workspace/retention logic is in `web/model.mjs`, XML parsing in `web/xml.mjs`, directory validation/search in `web/directory.mjs`, and UI in `web/app.mjs`. Update tests and documentation when changing formats or identity rules. Saved workspace schemas must remain readable or receive an explicit migration.
+
+After checking sources, run the tests/build below, commit the directory, verification report, code and guide, then push to `main`. This manual maintenance command is **not** a scheduled collector. No new API key, recurring workflow or watchdog schedule is needed. The shared gateway remains maintained separately in the hub; ordinary directory edits require no gateway deployment.
 
 ## Develop and publish
 
@@ -97,7 +109,7 @@ python3 -m pip install -r tests/browser-requirements.txt
 CHROMIUM_PATH="$(command -v google-chrome)" python3 tests/browser_smoke.py
 ```
 
-Pure-model tests cover malicious URL rejection, canonical dedupe, dates, arbitrary added sources, refresh state, retention and exports. Browser tests exercise actual RSS/Atom/OPML DOM parsing, namespaces and relative links, local-only imports, the gateway envelope, quota failure retention, read/save/filter actions, JSON/OPML downloads and mobile overflow. Gateway calls in CI are deterministic fixtures; deployment still requires a real public gateway smoke check.
+Pure-model tests cover directory expansion, topic/search filtering and pack deduplication, malicious URL rejection, canonical dedupe, dates, arbitrary added sources, refresh state, retention and exports. Browser tests exercise first-load recommendations, individual/topic subscriptions without background requests, actual RSS/Atom/OPML DOM parsing, namespaces and relative links, local-only imports, the gateway envelope, quota failure retention, read/save/filter actions, JSON/OPML downloads and mobile overflow. Gateway calls in CI are deterministic fixtures; deployment still requires a real public gateway smoke check.
 
 GitHub Actions uses Ubuntu 24.04 and Google Chrome, checks PRs, saves screenshots and a preview, then publishes successful `main` builds. Set **Settings → Pages → Source → GitHub Actions**. Only `dist/` is deployed; do not commit it or add a CNAME. App assets remain relative for `/feedharbour/`.
 

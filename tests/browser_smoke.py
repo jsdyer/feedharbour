@@ -50,6 +50,38 @@ def main():
                 expect(page.locator('#empty')).to_be_visible()
                 assert requests == []
                 assert page.evaluate("localStorage.getItem('coolcode:feedharbour:workspace')") is None
+                directory = json.loads((ROOT / 'web/data/feed-directory.json').read_text())
+                expect(page.locator('#directory-cards article')).to_have_count(min(12, len(directory['feeds'])))
+                expect(page.locator('#directory-meta')).to_contain_text(f"{len(directory['feeds'])} checked feeds")
+                page.screenshot(path=str(screenshots / 'directory-desktop.png'), full_page=True)
+                if len(directory['feeds']) > 12:
+                    page.locator('#directory-more').click()
+                    expect(page.locator('#directory-cards article')).to_have_count(min(24, len(directory['feeds'])))
+                first = page.locator('#directory-cards article').first
+                first.get_by_role('button', name='+ Add feed', exact=True).click()
+                expect(first.get_by_role('button', name='✓ Added', exact=True)).to_be_disabled()
+                expect(page.locator('#workspace-summary')).to_contain_text('1 feed')
+                assert requests == [], 'Directory browsing/subscribing must not fetch publishers'
+                page.locator('#directory-category').select_option('projects')
+                project_count = sum(f['category'] == 'projects' for f in directory['feeds'])
+                expect(page.locator('#directory-cards article')).to_have_count(min(12, project_count))
+                page.locator('#add-topic').click()
+                subscribed_count = len({directory['feeds'][0]['id']} | {f['id'] for f in directory['feeds'] if f['category'] == 'projects'})
+                expect(page.locator('#workspace-summary')).to_contain_text(f'{subscribed_count} feeds')
+                expect(page.locator('#add-topic')).to_be_disabled()
+                assert requests == []
+                page.locator('#directory-category').select_option('')
+                page.locator('#directory-search').fill('Nova Scotia')
+                expect(page.locator('#directory-count')).to_contain_text('recommendation')
+                assert page.locator('#directory-cards article').count() >= 1
+                page.locator('#directory-search').fill('no-such-recommendation-xyz')
+                expect(page.locator('#directory-empty')).to_be_visible()
+                page.locator('#directory-toggle').click()
+                expect(page.locator('#directory-content')).to_be_hidden()
+                page.reload()
+                expect(page.locator('#directory-cards article')).to_have_count(min(12, len(directory['feeds'])))
+                expect(page.locator('#workspace-summary')).to_contain_text('0 feeds')
+                assert requests == []
                 # Exercise the actual browser XML parser, including Atom xml:base and XHTML.
                 parsed = page.evaluate("""async texts => {const m=await import('./xml.mjs');return {rss:m.parseFeed(texts.rss,'https://publisher.example.org/feed.xml'),atom:m.parseFeed(texts.atom,'https://publisher.example.org/atom.xml'),opml:m.parseOPML(texts.opml)};}""", {'rss': (FIXTURES/'rss.xml').read_text(), 'atom': (FIXTURES/'atom.xml').read_text(), 'opml': (FIXTURES/'subscriptions.opml').read_text()})
                 assert parsed['rss']['items'][1]['url'] == ''
@@ -137,7 +169,7 @@ def main():
                     assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), overflow
                 assert not errors, errors
                 browser.close()
-            print('Browser checks passed: RSS/Atom/OPML, XML safety, live contract, failed refresh retention, reading state, arbitrary feeds, exports and mobile layout')
+            print('Browser checks passed: recommended directory, explicit topic packs, RSS/Atom/OPML, XML safety, live contract, failed refresh retention, reading state, arbitrary feeds, exports and mobile layout')
         finally:
             server.shutdown()
 

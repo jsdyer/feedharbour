@@ -1,6 +1,8 @@
 import { LIMITS, emptyWorkspace, makeFeed, normalizeWorkspace, addFeeds, mergeCapture, articleGroups, changeArticleState, exportOPML, safeURL, validDate } from './model.mjs';
 import { parseFeed, parseOPML } from './xml.mjs';
+import { normalizeDirectory, directoryMatches, directorySubscriptions } from './directory.mjs';
 const $=s=>document.querySelector(s),storageKey='coolcode:feedharbour:workspace';
+let directory=null,directoryShown=12;
 let workspace=emptyWorkspace(),config=null,filterState='all',shown=40,refreshing=false,controller=null,stopped=false,generation=0;
 function el(tag,text,className){const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(className)n.className=className;return n;}
 function button(text,action,className='quiet'){const b=el('button',text,className);b.type='button';b.addEventListener('click',action);return b;}
@@ -19,7 +21,7 @@ function render(){
   $('#workspace-summary').textContent=`${workspace.feeds.length} ${workspace.feeds.length===1?'feed':'feeds'} · ${workspace.items.length} captured items · ${groups.filter(i=>!i.read).length} unread groups`;
   $('#refresh-all').disabled=refreshing||!workspace.feeds.some(f=>f.kind==='remote')||!config;
   $('#load').disabled=refreshing;$('#import-json').disabled=refreshing;$('#clear-read').disabled=refreshing;
-  renderManager();renderItems();
+  renderManager();renderItems();renderDirectory();
 }
 function renderManager(){
   const node=$('#feed-manager');node.replaceChildren();
@@ -65,7 +67,7 @@ async function readFile(input,max,action){const file=input.files[0];if(!file)ret
 async function addExample(){try{const response=await fetch('./data/example.xml');if(!response.ok)throw new Error('Example could not load.');const capture=parseFeed(await response.text());const feed={id:'local:example',kind:'local',url:'',title:'Invented example',folder:'Example',fetchedAt:'',sourceUpdated:'',error:''};const result=addFeeds(workspace,[feed]);workspace=mergeCapture(result.workspace,feed.id,capture,new Date().toISOString());dirty();render();message('Invented local example added. These are demonstration headlines, not live news.');}catch(e){message(e.message,true);}}
 $('#manage-toggle').addEventListener('click',()=>manage($('#manage').hidden));$('#close-manage').addEventListener('click',()=>manage(false));$('#empty-add').addEventListener('click',()=>{manage();$('#feed-url').focus();});
 $('#add-feed').addEventListener('submit',e=>{e.preventDefault();withStatus(()=>{const f=makeFeed($('#feed-url').value,'',$('#feed-folder').value);const result=addFeeds(workspace,[f]);workspace=result.workspace;$('#feed-url').value='';dirty();render();message(result.added?'Feed added. Click Refresh to fetch its public content.':'This feed is already in your workspace.');});});
-$('#add-starters').addEventListener('click',()=>withStatus(()=>{if(!config)throw new Error('Configuration is still loading.');const result=addFeeds(workspace,config.starterFeeds.map(f=>makeFeed(f.url,f.title,f.folder)));workspace=result.workspace;dirty();render();message(`${result.added} starter feeds added; ${result.duplicates} already present. Refresh when ready.`);}));
+$('#add-starters').addEventListener('click',()=>{setDirectoryOpen(true);$('#directory').scrollIntoView({behavior:'smooth',block:'start'});$('#directory-search').focus({preventScroll:true});});
 $('#refresh-all').addEventListener('click',()=>refreshFeeds(workspace.feeds.filter(f=>f.kind==='remote').map(f=>f.id)));
 $('#stop').addEventListener('click',()=>{stopped=true;controller?.abort();});
 for(const id of ['example','empty-example'])$('#'+id).addEventListener('click',addExample);
@@ -83,4 +85,30 @@ $('#import-json').addEventListener('change',e=>readFile(e.target,LIMITS.workspac
 $('#import-opml').addEventListener('change',e=>readFile(e.target,LIMITS.xmlBytes,async text=>{const parsed=parseOPML(text),result=addFeeds(workspace,parsed.feeds);workspace=result.workspace;dirty();render();manage();message(`OPML: ${result.added} feeds added, ${result.duplicates+parsed.duplicates} duplicates, ${parsed.skipped.length} unsupported URLs skipped. No feeds were fetched.`);}));
 $('#import-xml').addEventListener('change',e=>readFile(e.target,LIMITS.xmlBytes,async text=>{const parsed=parseFeed(text);const feed={id:'local:'+crypto.randomUUID(),kind:'local',url:'',title:parsed.title,folder:'Local imports',fetchedAt:'',sourceUpdated:'',error:''};const result=addFeeds(workspace,[feed]);const next=mergeCapture(result.workspace,feed.id,parsed,new Date().toISOString());workspace=next;dirty();render();message(`Local XML imported: ${parsed.items.length} items${parsed.truncated?' (first 300 only)':''}. No publisher or gateway was contacted.`);}));
 render();
-try{const r=await fetch('./config.json');if(!r.ok)throw new Error('Configuration could not load.');const c=await r.json();if(!safeURL(c.gateway,'',true)||!Array.isArray(c.starterFeeds))throw new Error('Invalid configuration.');config=c;render();}catch(e){message(`${e.message} Local file imports and reading still work.`,true);}
+try{const r=await fetch('./config.json');if(!r.ok)throw new Error('Configuration could not load.');const c=await r.json();if(!safeURL(c.gateway,'',true))throw new Error('Invalid configuration.');config=c;render();}catch(e){message(`${e.message} Local file imports and reading still work.`,true);}
+
+function setDirectoryOpen(open){$('#directory-content').hidden=!open;$('#directory-toggle').setAttribute('aria-expanded',String(open));$('#directory-toggle').textContent=open?'Hide directory':'Browse feed directory';}
+function addRecommendations(ids){try{const added=addFeeds(workspace,directorySubscriptions(directory,ids));workspace=added.workspace;dirty();render();const text=`${added.added} ${added.added===1?'feed':'feeds'} added; ${added.duplicates} already present. Choose Refresh public feeds when ready. Nothing was fetched or saved.`;$('#directory-status').textContent=text;$('#directory-status').className='';message(text);}catch(e){$('#directory-status').textContent=e.message;$('#directory-status').className='error';}}
+function renderDirectory(){
+  if(!directory)return;
+  const names=new Map(directory.categories.map(c=>[c.id,c.title])),category=$('#directory-category').value,query=$('#directory-search').value;
+  const matches=directoryMatches(directory,{category,query}),subscribed=new Set(workspace.feeds.filter(f=>f.kind==='remote').map(f=>f.url));
+  $('#directory-meta').textContent=`${directory.feeds.length} checked feeds across ${directory.categories.length} CoolCode topics · Reviewed ${new Date(directory.reviewed_at).toLocaleDateString(undefined,{dateStyle:'medium'})}`;
+  $('#directory-count').textContent=`${matches.length} ${matches.length===1?'recommendation':'recommendations'}${matches.length>directoryShown?` · showing ${directoryShown}`:''}`;
+  $('#directory-more').hidden=matches.length<=directoryShown;$('#directory-empty').hidden=matches.length!==0;
+  const pack=directoryMatches(directory,{category});const packButton=$('#add-topic');packButton.hidden=!category||!!query.trim();packButton.textContent=`Add ${pack.length} feeds in this topic`;packButton.disabled=pack.every(f=>subscribed.has(f.url));
+  const cards=$('#directory-cards');cards.replaceChildren();
+  for(const f of matches.slice(0,directoryShown)){
+    const card=el('article',undefined,'recommendation');card.dataset.feedId=f.id;
+    card.append(el('p',names.get(f.category),'recommendation-topic'),el('h3',f.title),el('p',f.description,'recommendation-description'));
+    const tags=el('p',f.tags.join(' · '),'recommendation-tags');card.append(tags);
+    const actions=el('div',undefined,'recommendation-actions');const added=subscribed.has(f.url);const add=button(added?'✓ Added':'+ Add feed',()=>addRecommendations([f.id]),'secondary');add.disabled=added;actions.append(add);
+    const source=el('a','Publisher ↗');source.href=f.site;source.target='_blank';source.rel='noopener noreferrer';source.referrerPolicy='no-referrer';actions.append(source);card.append(actions);
+    const check=el('details',undefined,'recommendation-check');check.append(el('summary',`${f.verification.format} · checked ${new Date(f.verification.checked_at).toLocaleDateString(undefined,{month:'short',day:'numeric'})}`));check.append(el('p',`${f.verification.entry_count} entries were returned at verification. Latest dated entry: ${f.verification.latest_entry_at?new Date(f.verification.latest_entry_at).toLocaleDateString():'unknown'}. This is a past availability check, not a live news update.`));const feedLink=el('a','Feed XML ↗');feedLink.href=f.url;feedLink.target='_blank';feedLink.rel='noopener noreferrer';feedLink.referrerPolicy='no-referrer';check.append(feedLink);card.append(check);cards.append(card);
+  }
+}
+$('#directory-toggle').addEventListener('click',()=>setDirectoryOpen($('#directory-content').hidden));
+for(const id of ['directory-category','directory-search'])$('#'+id).addEventListener(id==='directory-search'?'input':'change',()=>{directoryShown=12;renderDirectory();});
+$('#directory-more').addEventListener('click',()=>{directoryShown+=12;renderDirectory();});
+$('#add-topic').addEventListener('click',()=>{if(directory){const category=$('#directory-category').value;if(category)addRecommendations(directoryMatches(directory,{category}).map(f=>f.id));}});
+try{const r=await fetch('./data/feed-directory.json');if(!r.ok)throw new Error('Directory could not load.');directory=normalizeDirectory(await r.json());options($('#directory-category'),directory.categories.map(c=>[c.id,`${c.title} (${directory.feeds.filter(f=>f.category===c.id).length})`]),'All topics');renderDirectory();}catch(e){$('#directory-meta').textContent=`${e.message} You can still add your own feeds or import OPML below.`;$('#directory-content').hidden=true;$('#directory-toggle').disabled=true;}

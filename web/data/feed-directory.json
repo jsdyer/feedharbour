@@ -1,0 +1,708 @@
+{
+  "schema": "coolcode.feed-directory.v1",
+  "reviewed_at": "2026-11-25T06:40:10Z",
+  "categories": [
+    {
+      "id": "projects",
+      "title": "Homelab & archiving"
+    },
+    {
+      "id": "liminal-tools",
+      "title": "Networks & routing"
+    },
+    {
+      "id": "security",
+      "title": "Security & forensics"
+    },
+    {
+      "id": "explorers",
+      "title": "Government & public records"
+    },
+    {
+      "id": "disclosures",
+      "title": "Public disclosures"
+    },
+    {
+      "id": "places",
+      "title": "Maps, trails & history"
+    },
+    {
+      "id": "field-kit",
+      "title": "Sky & photography"
+    },
+    {
+      "id": "money",
+      "title": "Money & markets"
+    },
+    {
+      "id": "media",
+      "title": "Media, events & the old web"
+    }
+  ],
+  "feeds": [
+    {
+      "id": "bc-gov",
+      "title": "BC Government News",
+      "url": "https://news.gov.bc.ca/feed",
+      "site": "https://news.gov.bc.ca/",
+      "description": "Provincial announcements, services and policy updates across British Columbia.",
+      "tags": [
+        "British Columbia",
+        "government",
+        "local"
+      ],
+      "category": "explorers",
+      "verification": {
+        "checked_at": "2026-11-25T06:39:28Z",
+        "fetched_at": "2026-11-25T06:36:56.564Z",
+        "format": "RSS",
+        "entry_count": 10,
+        "latest_entry_at": "2026-11-25T01:55:00Z"
+      }
+    },
+    {
+      "id": "global-halifax",
+      "title": "Global News Halifax",
+      "url": "https://globalnews.ca/halifax/feed/",
+      "site": "https://globalnews.ca/halifax/",
+      "description": "Halifax and Nova Scotia news, local events and community reporting.",
+      "tags": [
+        "Nova Scotia",
+        "Halifax",
+        "local news"
+      ],
+      "category": "places",
+      "verification": {
+        "checked_at": "2026-11-25T06:39:28Z",
+        "fetched_at": "2026-11-25T06:36:56.182Z",
+        "format": "RSS",
+        "entry_count": 10,
+        "latest_entry_at": "2026-11-24T20:57:07Z"
+      }
+    },
+    {
+      "id": "nasa-latest",
+      "title": "NASA latest",
+      "url": "https://www.nasa.gov/news-release/feed/",
+      "site": "https://www.nasa.gov/rss-feeds/",
+      "category": "field-kit",
+      "description": "Recent NASA science, mission, image and agency stories.",
+      "tags": [
+        "NASA",
+        "space",
+        "science"
+      ],
+      "verification": {
+        "checked_at": "2026-11-25T06:39:28Z",
+        "fetched_at": "2026-11-25T06:36:32.576Z",
+        "format": "RSS",
+        "entry_count": 10,
+        "latest_entry_at": "2026-11-25T05:05:00Z"
+      }
+    },
+    {
+      "id": "linux-kernel",
+      "title": "Linux kernel releases",
+      "url": "https://www.kernel.org/feeds/kdist.xml",
+      "site": "https://www.kernel.org/faq.html",
+      "category": "projects",
+      "description": "Stable, long-term and mainline Linux kernel release announcements.",
+      "tags": [
+        "Linux",
+        "releases",
+        "homelab"
+      ],
+      "verification": {
+        "checked_at": "2026-11-25T06:39:34Z",
+        "fetched_at": "2026-11-25T06:36:16.939Z",
+        "format": "RSS",
+        "entry_count": 10,
+        "latest_entry_at": "2026-11-24T19:03:28Z"
+      }
+    },
+    {
+      "id": "apnic-blog",
+      "title": "APNIC blog",
+      "url": "https://blog.apnic.net/feed/",
+      "site": "https://blog.apnic.net/",
+      "category": "liminal-tools",
+      "description": "Practical DNS, IPv6, routing and Internet measurement articles.",
+      "tags": [
+        "DNS",
+        "BGP",
+        "IPv6",
+        "networks"
+      ],
+      "verification": {
+        "checked_at": "2026-11-25T06:39:34Z",
+        "fetched_at": "2026-11-25T06:36:25.177Z",
+        "format": "RSS",
+        "entry_count": 30,
+        "latest_entry_at": "2026-11-25T01:19:41Z"
+      }
+    },
+    {
+      "id": "boc-explainers",
+      "title": "Bank of Canada: The Economy, Plain and Simple",
+      "url": "https://www.bankofcanada.ca/content_type/EPS/feed/",
+      "site": "https://www.bankofcanada.ca/the-economy-plain-and-simple/",
+      "description": "Accessible explanations of inflation, interest rates and how the Canadian economy works.",
+      "tags": [
+        "Canada",
+        "economics",
+        "explainers"
+      ],
+      "category": "money",
+      "verification": {
+        "checked_at": "2026-11-25T06:39:34Z",
+        "fetched_at": "2026-11-25T06:37:03.429Z",
+        "format": "RSS 1.0",
+        "entry_count": 10,
+        "latest_entry_at": "2026-10-08T14:30:55Z"
+      }
+    },
+    {
+      "id": "archive-blog",
+      "title": "Internet Archive blog",
+      "url": "https://blog.archive.org/feed/",
+      "site": "https://blog.archive.org/",
+      "category": "projects",
+      "description": "Web preservation, digital libraries and news from the Internet Archive.",
+      "tags": [
+        "archive.org",
+        "preservation",
+        "old web"
+      ],
+      "verification": {
+        "checked_at": "2026-11-25T06:39:37Z",
+        "fetched_at": "2026-11-25T06:36:22.117Z",
+        "format": "RSS",
+        "entry_count": 10,
+        "latest_entry_at": "2026-11-24T14:00:00Z"
+      }
+    },
+    {
+      "id": "tyee",
+      "title": "The Tyee",
+      "url": "https://thetyee.ca/rss2.xml",
+      "site": "https://thetyee.ca/",
+      "description": "Independent British Columbia reporting on public affairs, culture and the environment.",
+      "tags": [
+        "British Columbia",
+        "journalism",
+        "culture"
+      ],
+      "category": "media",
+      "verification": {
+        "checked_at": "2026-11-25T06:39:37Z",
+        "fetched_at": "2026-11-25T06:37:00.584Z",
+        "format": "RSS",
+        "entry_count": 21,
+        "latest_entry_at": "2026-11-25T08:40:00Z"
+      }
+    },
+    {
+      "id": "opc-pipeda",
+      "title": "Privacy Commissioner: PIPEDA Findings",
+      "url": "https://www.priv.gc.ca/en/rss/pipeda/",
+      "site": "https://www.priv.gc.ca/",
+      "description": "Published private-sector privacy investigation findings and case summaries.",
+      "tags": [
+        "privacy",
+        "Canada",
+        "investigations"
+      ],
+      "category": "disclosures",
+      "verification": {
+        "checked_at": "2026-11-25T06:39:37Z",
+        "fetched_at": "2026-11-25T06:37:09.523Z",
+        "format": "RSS",
+        "entry_count": 174,
+        "latest_entry_at": "2026-10-21T05:00:00Z"
+      }
+    },
+    {
+      "id": "sky-telescope",
+      "title": "Sky & Telescope",
+      "url": "https://skyandtelescope.org/feed/",
+      "site": "https://skyandtelescope.org/",
+      "category": "field-kit",
+      "description": "Observing ideas, astronomy news and skywatching guidance.",
+      "tags": [
+        "astronomy",
+        "stargazing",
+        "photography"
+      ],
+      "verification": {
+        "checked_at": "2026-11-25T06:39:41Z",
+        "fetched_at": "2026-11-25T06:36:37.247Z",
+        "format": "RSS",
+        "entry_count": 10,
+        "latest_entry_at": "2026-11-24T21:03:51Z"
+      }
+    },
+    {
+      "id": "public-domain-review",
+      "title": "The Public Domain Review",
+      "url": "https://publicdomainreview.org/rss.xml",
+      "site": "https://publicdomainreview.org/",
+      "category": "media",
+      "description": "Curated historical images, films, books and unusual public-domain collections.",
+      "tags": [
+        "archives",
+        "history",
+        "culture",
+        "public domain"
+      ],
+      "verification": {
+        "checked_at": "2026-11-25T06:39:41Z",
+        "fetched_at": "2026-11-25T06:36:40.240Z",
+        "format": "RSS",
+        "entry_count": 100,
+        "latest_entry_at": "2026-11-24T15:36:00Z"
+      }
+    },
+    {
+      "id": "budget-bytes",
+      "title": "Budget Bytes",
+      "url": "https://www.budgetbytes.com/feed/",
+      "site": "https://www.budgetbytes.com/",
+      "description": "Budget-friendly recipe ideas and cooking guides from the publisher.",
+      "tags": [
+        "food",
+        "recipes",
+        "budget cooking"
+      ],
+      "category": "media",
+      "verification": {
+        "checked_at": "2026-11-25T06:39:41Z",
+        "fetched_at": "2026-11-25T06:39:45.131Z",
+        "format": "RSS",
+        "entry_count": 10,
+        "latest_entry_at": "2026-11-23T14:30:00Z"
+      }
+    },
+    {
+      "id": "arch-linux",
+      "title": "Arch Linux news",
+      "url": "https://archlinux.org/feeds/news/",
+      "site": "https://archlinux.org/",
+      "category": "projects",
+      "description": "Distribution news and changes that may need manual attention.",
+      "tags": [
+        "Linux",
+        "Arch",
+        "packages"
+      ],
+      "verification": {
+        "checked_at": "2026-11-25T06:39:45Z",
+        "fetched_at": "2026-11-25T06:36:17.561Z",
+        "format": "RSS",
+        "entry_count": 10,
+        "latest_entry_at": "2026-10-21T13:58:42Z"
+      }
+    },
+    {
+      "id": "fedora-magazine",
+      "title": "Fedora Magazine",
+      "url": "https://fedoramagazine.org/feed/",
+      "site": "https://fedoramagazine.org/",
+      "category": "projects",
+      "description": "Practical Linux guides, desktop applications and Fedora releases.",
+      "tags": [
+        "Linux",
+        "Fedora",
+        "how-to"
+      ],
+      "verification": {
+        "checked_at": "2026-11-25T06:39:45Z",
+        "fetched_at": "2026-11-25T06:36:21.166Z",
+        "format": "RSS",
+        "entry_count": 10,
+        "latest_entry_at": "2026-11-20T08:01:00Z"
+      }
+    },
+    {
+      "id": "freebsd-news",
+      "title": "FreeBSD news",
+      "url": "https://www.freebsd.org/news/feed.xml",
+      "site": "https://www.freebsd.org/",
+      "category": "projects",
+      "description": "Official FreeBSD releases and project updates for servers and desktops.",
+      "tags": [
+        "FreeBSD",
+        "homelab",
+        "open source"
+      ],
+      "verification": {
+        "checked_at": "2026-11-25T06:39:45Z",
+        "fetched_at": "2026-11-25T06:36:21.659Z",
+        "format": "RSS",
+        "entry_count": 10,
+        "latest_entry_at": "2026-11-21T00:00:00Z"
+      }
+    },
+    {
+      "id": "ietf-blog",
+      "title": "IETF blog",
+      "url": "https://www.ietf.org/blog/feed/",
+      "site": "https://www.ietf.org/blog/",
+      "category": "liminal-tools",
+      "description": "Internet standards, protocol work and IETF community news.",
+      "tags": [
+        "protocols",
+        "standards",
+        "Internet"
+      ],
+      "verification": {
+        "checked_at": "2026-11-25T06:39:48Z",
+        "fetched_at": "2026-11-25T06:36:25.072Z",
+        "format": "RSS",
+        "entry_count": 603,
+        "latest_entry_at": "2026-11-12T23:16:00Z"
+      }
+    },
+    {
+      "id": "cloudflare-blog",
+      "title": "Cloudflare engineering blog",
+      "url": "https://blog.cloudflare.com/rss/",
+      "site": "https://blog.cloudflare.com/",
+      "category": "liminal-tools",
+      "description": "Internet traffic, network reliability and security engineering from Cloudflare.",
+      "tags": [
+        "DNS",
+        "routing",
+        "networking",
+        "engineering"
+      ],
+      "verification": {
+        "checked_at": "2026-11-25T06:39:48Z",
+        "fetched_at": "2026-11-25T06:36:25.127Z",
+        "format": "RSS",
+        "entry_count": 20,
+        "latest_entry_at": "2026-11-23T14:00:00Z"
+      }
+    },
+    {
+      "id": "internet-society",
+      "title": "Internet Society",
+      "url": "https://www.internetsociety.org/feed/",
+      "site": "https://www.internetsociety.org/blog/",
+      "category": "liminal-tools",
+      "description": "Internet access, resilience, open standards and network policy.",
+      "tags": [
+        "Internet",
+        "access",
+        "networks"
+      ],
+      "verification": {
+        "checked_at": "2026-11-25T06:39:48Z",
+        "fetched_at": "2026-11-25T06:36:29.924Z",
+        "format": "RSS",
+        "entry_count": 20,
+        "latest_entry_at": "2026-11-24T11:59:00Z"
+      }
+    },
+    {
+      "id": "eff-updates",
+      "title": "EFF Deeplinks",
+      "url": "https://www.eff.org/rss/updates.xml",
+      "site": "https://www.eff.org/rss",
+      "category": "security",
+      "description": "Digital rights, online privacy, surveillance and user security.",
+      "tags": [
+        "privacy",
+        "rights",
+        "security"
+      ],
+      "verification": {
+        "checked_at": "2026-11-25T06:39:52Z",
+        "fetched_at": "2026-11-25T06:39:55.731Z",
+        "format": "RSS",
+        "entry_count": 50,
+        "latest_entry_at": "2026-11-24T22:35:05Z"
+      }
+    },
+    {
+      "id": "schneier-security",
+      "title": "Schneier on Security",
+      "url": "https://www.schneier.com/feed/atom/",
+      "site": "https://www.schneier.com/",
+      "category": "security",
+      "description": "Security analysis, research and technology policy from Bruce Schneier.",
+      "tags": [
+        "security",
+        "privacy",
+        "research"
+      ],
+      "verification": {
+        "checked_at": "2026-11-25T06:39:52Z",
+        "fetched_at": "2026-11-25T06:36:29.186Z",
+        "format": "Atom",
+        "entry_count": 10,
+        "latest_entry_at": "2026-11-24T12:06:54Z"
+      }
+    },
+    {
+      "id": "krebs-security",
+      "title": "Krebs on Security",
+      "url": "https://krebsonsecurity.com/feed/",
+      "site": "https://krebsonsecurity.com/",
+      "category": "security",
+      "description": "Independent reporting on cybercrime, fraud and security incidents.",
+      "tags": [
+        "fraud",
+        "cybercrime",
+        "security"
+      ],
+      "verification": {
+        "checked_at": "2026-11-25T06:39:52Z",
+        "fetched_at": "2026-11-25T06:36:32.653Z",
+        "format": "RSS",
+        "entry_count": 10,
+        "latest_entry_at": "2026-11-21T00:36:39Z"
+      }
+    },
+    {
+      "id": "cisa-advisories",
+      "title": "CISA cybersecurity advisories",
+      "url": "https://www.cisa.gov/cybersecurity-advisories/all.xml",
+      "site": "https://www.cisa.gov/cybersecurity-advisories",
+      "category": "security",
+      "description": "Official vulnerability advisories and defensive guidance from CISA.",
+      "tags": [
+        "vulnerabilities",
+        "advisories",
+        "security"
+      ],
+      "verification": {
+        "checked_at": "2026-11-25T06:39:55Z",
+        "fetched_at": "2026-11-25T06:36:32.540Z",
+        "format": "RSS",
+        "entry_count": 30,
+        "latest_entry_at": "2026-11-24T12:00:00Z"
+      }
+    },
+    {
+      "id": "boc-news",
+      "title": "Bank of Canada News",
+      "url": "https://www.bankofcanada.ca/utility/news/feed/",
+      "site": "https://www.bankofcanada.ca/",
+      "description": "Central bank announcements, policy decisions, speeches and research updates.",
+      "tags": [
+        "Canada",
+        "interest rates",
+        "economy"
+      ],
+      "category": "money",
+      "verification": {
+        "checked_at": "2026-11-25T06:39:55Z",
+        "fetched_at": "2026-11-25T06:37:03.430Z",
+        "format": "RSS 1.0",
+        "entry_count": 10,
+        "latest_entry_at": "2026-11-24T12:35:21Z"
+      }
+    },
+    {
+      "id": "moneysense",
+      "title": "MoneySense",
+      "url": "https://www.moneysense.ca/feed/",
+      "site": "https://www.moneysense.ca/",
+      "description": "Canadian personal-finance articles about saving, mortgages, taxes and investing.",
+      "tags": [
+        "Canada",
+        "personal finance",
+        "money"
+      ],
+      "category": "money",
+      "verification": {
+        "checked_at": "2026-11-25T06:39:55Z",
+        "fetched_at": "2026-11-25T06:37:03.429Z",
+        "format": "RSS",
+        "entry_count": 9,
+        "latest_entry_at": "2026-11-24T21:16:58Z"
+      }
+    },
+    {
+      "id": "opc-privacy-act",
+      "title": "Privacy Commissioner: Privacy Act Findings",
+      "url": "https://www.priv.gc.ca/en/rss/pa/",
+      "site": "https://www.priv.gc.ca/",
+      "description": "Published federal-government privacy investigation findings and reports.",
+      "tags": [
+        "privacy",
+        "Canada",
+        "government accountability"
+      ],
+      "category": "disclosures",
+      "verification": {
+        "checked_at": "2026-11-25T06:39:59Z",
+        "fetched_at": "2026-11-25T06:37:09.421Z",
+        "format": "RSS",
+        "entry_count": 138,
+        "latest_entry_at": "2026-05-07T05:00:00Z"
+      }
+    },
+    {
+      "id": "canada-news",
+      "title": "Government of Canada: National News",
+      "url": "https://api.io.canada.ca/io-server/gc/news/en/v2?sort=publishedDate&orderBy=desc&publishedDate%3E=2021-10-25&pick=100&format=atom&atomtitle=National%20News",
+      "site": "https://www.canada.ca/en/news.html",
+      "description": "Federal announcements, service updates and news releases from across Canada.",
+      "tags": [
+        "Canada",
+        "government",
+        "national"
+      ],
+      "category": "explorers",
+      "verification": {
+        "checked_at": "2026-11-25T06:39:59Z",
+        "fetched_at": "2026-11-25T06:37:09.194Z",
+        "format": "Atom",
+        "entry_count": 100,
+        "latest_entry_at": "2026-11-24T23:37:17Z"
+      }
+    },
+    {
+      "id": "canada-bc",
+      "title": "Government of Canada: British Columbia",
+      "url": "https://api.io.canada.ca/io-server/gc/news/en/v2?location=bc59&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-10-25&pick=100&format=atom&atomtitle=British%20Columbia",
+      "site": "https://www.canada.ca/en/news.html",
+      "description": "Federal announcements associated with British Columbia.",
+      "tags": [
+        "British Columbia",
+        "government",
+        "Canada"
+      ],
+      "category": "explorers",
+      "verification": {
+        "checked_at": "2026-11-25T06:39:59Z",
+        "fetched_at": "2026-11-25T06:37:08.904Z",
+        "format": "Atom",
+        "entry_count": 100,
+        "latest_entry_at": "2026-11-20T21:13:35Z"
+      }
+    },
+    {
+      "id": "canada-ns",
+      "title": "Government of Canada: Nova Scotia",
+      "url": "https://api.io.canada.ca/io-server/gc/news/en/v2?location=ns12&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-10-25&pick=100&format=atom&atomtitle=Nova%20Scotia",
+      "site": "https://www.canada.ca/en/news.html",
+      "description": "Federal announcements associated with Nova Scotia.",
+      "tags": [
+        "Nova Scotia",
+        "government",
+        "Canada"
+      ],
+      "category": "explorers",
+      "verification": {
+        "checked_at": "2026-11-25T06:40:02Z",
+        "fetched_at": "2026-11-25T06:37:17.420Z",
+        "format": "Atom",
+        "entry_count": 100,
+        "latest_entry_at": "2026-11-24T15:18:41Z"
+      }
+    },
+    {
+      "id": "cfia-news",
+      "title": "Canadian Food Inspection Agency",
+      "url": "https://api.io.canada.ca/io-server/gc/news/en/v2?dept=foodinspectionagency&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-07-23&pick=50&format=atom&atomtitle=Canadian%20Food%20Inspection%20Agency",
+      "site": "https://www.canada.ca/en/news.html",
+      "description": "Food inspection, animal and plant health news; not a complete real-time recall alert service.",
+      "tags": [
+        "food",
+        "Canada",
+        "food safety"
+      ],
+      "category": "explorers",
+      "verification": {
+        "checked_at": "2026-11-25T06:40:02Z",
+        "fetched_at": "2026-11-25T06:37:17.416Z",
+        "format": "Atom",
+        "entry_count": 50,
+        "latest_entry_at": "2026-10-23T15:25:19Z"
+      }
+    },
+    {
+      "id": "competition-bureau",
+      "title": "Competition Bureau Canada",
+      "url": "https://api.io.canada.ca/io-server/gc/news/en/v2?dept=competitionbureau&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-07-23&pick=50&format=atom&atomtitle=Competition%20Bureau%20Canada",
+      "site": "https://www.canada.ca/en/news.html",
+      "description": "Competition investigations, enforcement announcements and consumer-facing public reports.",
+      "tags": [
+        "Canada",
+        "competition",
+        "consumer protection"
+      ],
+      "category": "disclosures",
+      "verification": {
+        "checked_at": "2026-11-25T06:40:02Z",
+        "fetched_at": "2026-11-25T06:37:17.398Z",
+        "format": "Atom",
+        "entry_count": 50,
+        "latest_entry_at": "2026-11-23T20:23:40Z"
+      }
+    },
+    {
+      "id": "fcac-news",
+      "title": "Financial Consumer Agency of Canada",
+      "url": "https://api.io.canada.ca/io-server/gc/news/en/v2?dept=financialconsumeragency&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-07-23&pick=50&format=atom&atomtitle=Financial%20Consumer%20Agency%20of%20Canada",
+      "site": "https://www.canada.ca/en/news.html",
+      "description": "Official financial-literacy initiatives, consumer protection and banking announcements.",
+      "tags": [
+        "Canada",
+        "personal finance",
+        "banking"
+      ],
+      "category": "money",
+      "verification": {
+        "checked_at": "2026-11-25T06:40:06Z",
+        "fetched_at": "2026-11-25T06:37:17.377Z",
+        "format": "Atom",
+        "entry_count": 50,
+        "latest_entry_at": "2026-11-18T21:03:34Z"
+      }
+    },
+    {
+      "id": "parks-canada",
+      "title": "Parks Canada News",
+      "url": "https://api.io.canada.ca/io-server/gc/news/en/v2?dept=parkscanada&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-07-23&pick=50&format=atom&atomtitle=Parks%20Canada",
+      "site": "https://www.canada.ca/en/news.html",
+      "description": "National parks, historic sites, conservation and visitor-programme announcements.",
+      "tags": [
+        "Canada",
+        "parks",
+        "history",
+        "travel"
+      ],
+      "category": "places",
+      "verification": {
+        "checked_at": "2026-11-25T06:40:06Z",
+        "fetched_at": "2026-11-25T06:37:17.506Z",
+        "format": "Atom",
+        "entry_count": 50,
+        "latest_entry_at": "2026-10-28T14:18:25Z"
+      }
+    },
+    {
+      "id": "canada-travel",
+      "title": "Government of Canada: Travel",
+      "url": "https://api.io.canada.ca/io-server/gc/news/en/v2?subject=travel&sort=publishedDate&orderBy=desc&publishedDate%3E=2021-10-25&pick=100&format=atom&atomtitle=travel",
+      "site": "https://www.canada.ca/en/news.html",
+      "description": "Federal travel-related announcements and public information; check destination advisories separately.",
+      "tags": [
+        "Canada",
+        "travel",
+        "government"
+      ],
+      "category": "places",
+      "verification": {
+        "checked_at": "2026-11-25T06:40:06Z",
+        "fetched_at": "2026-11-25T06:37:24.277Z",
+        "format": "Atom",
+        "entry_count": 55,
+        "latest_entry_at": "2026-10-06T14:00:05Z"
+      }
+    }
+  ]
+}
