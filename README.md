@@ -109,6 +109,8 @@ python3 -m pip install -r tests/browser-requirements.txt
 CHROMIUM_PATH="$(command -v google-chrome)" python3 tests/browser_smoke.py
 ```
 
+The builder versions local scripts, module imports, directory/configuration JSON and CSS with one deterministic content hash, so a normal refresh loads a consistent release even when a browser retains older assets. Source files remain readable and unversioned; the build adds versioned references in `dist/`.
+
 Pure-model tests cover directory expansion, topic/search filtering and pack deduplication, malicious URL rejection, canonical dedupe, dates, arbitrary added sources, refresh state, retention and exports. Browser tests exercise first-load recommendations, individual/topic subscriptions without background requests, actual RSS/Atom/OPML DOM parsing, namespaces and relative links, local-only imports, the gateway envelope, quota failure retention, read/save/filter actions, JSON/OPML downloads and mobile overflow. Gateway calls in CI are deterministic fixtures; deployment still requires a real public gateway smoke check.
 
 GitHub Actions uses Ubuntu 24.04 and Google Chrome, checks PRs, saves screenshots and a preview, then publishes successful `main` builds. Set **Settings → Pages → Source → GitHub Actions**. Only `dist/` is deployed; do not commit it or add a CNAME. App assets remain relative for `/feedharbour/`.
