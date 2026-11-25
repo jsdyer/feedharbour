@@ -12,8 +12,9 @@ const content=(node,name)=>child(node,name)?.textContent||'';
 function inheritedBase(node,fallback){const bases=[];for(let n=node;n&&n.nodeType===1;n=n.parentElement){const b=n.getAttributeNS('http://www.w3.org/XML/1998/namespace','base');if(b)bases.unshift(b);}let base=fallback;for(const b of bases){base=safeURL(b,base)||base;}return base;}
 function link(node,base,atom=false){
   const scope=inheritedBase(node,base);
-  if(atom){const links=children(node,'link');const target=links.find(n=>(!n.getAttribute('rel')||n.getAttribute('rel')==='alternate')&&(!n.getAttribute('type')||['text/html','application/xhtml+xml'].includes(n.getAttribute('type'))));return target?safeURL(target.getAttribute('href'),inheritedBase(target,scope)):'';}
-  const explicit=safeURL(content(node,'link'),scope);
+  if(atom){const links=children(node,'link');const target=links.find(n=>(!n.getAttribute('rel')||n.getAttribute('rel')==='alternate')&&(!n.getAttribute('type')||['text/html','application/xhtml+xml'].includes(n.getAttribute('type'))));return target?safeURL(target.getAttribute('href'),inheritedBase(target,base)):'';}
+  const target=child(node,'link');
+  const explicit=target?safeURL(target.textContent,inheritedBase(target,base)):'';
   const guid=child(node,'guid');
   return explicit||(guid&&guid.getAttribute('isPermaLink')!=='false'?safeURL(guid.textContent,scope):'');
 }

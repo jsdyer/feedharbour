@@ -59,6 +59,8 @@ def main():
                 assert parsed['atom']['items'][1]['url'] == 'https://publisher.example.org/telescope'
                 assert parsed['atom']['items'][1]['summary'] == 'A telescope in the night sky.'
                 assert parsed['opml']['feeds'][1]['folder'] == 'Science / Nested'
+                relative = page.evaluate("""async () => {const m=await import('./xml.mjs');return m.parseFeed('<feed xmlns="http://www.w3.org/2005/Atom" xml:base="news/"><title>Relative</title><entry xml:base="posts/"><id>relative</id><title>Nested base</title><link href="story"/></entry></feed>','https://publisher.example.org/root/feed.xml').items[0].url;}""")
+                assert relative == 'https://publisher.example.org/root/news/posts/story'
                 rejected = page.evaluate("""async () => {const m=await import('./xml.mjs');return ['<!DOCTYPE rss [<!ENTITY x SYSTEM "file:///etc/passwd">]><rss/>','<rss><broken>','<html><body>Not a feed</body></html>'].map(x=>{try{m.parseFeed(x);return false;}catch{return true;}})}""")
                 assert rejected == [True, True, True]
                 page.locator('#manage-toggle').click()
