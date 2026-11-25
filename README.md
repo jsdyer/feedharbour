@@ -1,47 +1,87 @@
-# CoolCode browser tool template
+# Feed Harbour
 
-A starting point for independent tools at `coolcode.ca/<repo>/`: a working local-text
-example, responsive UI, Python standard-library build, Node tests, PR checks and Pages
-publication. No npm install is needed.
-
-## Using the example
+[Open Feed Harbour](https://coolcode.ca/feedharbour/) — read public RSS and Atom feeds in one calm workspace, organize them into folders and keep a private reading list. It runs as a static browser app with a shared public-feed gateway. No account, subscription, API key or app-specific scheduled collector is required.
 
 <!-- coolcode:guide -->
-The first occurrence of each trimmed line keeps its place. Compare the output with the original text before copying the result.
+Add a public HTTPS feed, or import an OPML subscription list, then choose Refresh public feeds. For example, put NASA in a Space folder and Canada news in a Canada folder, search a topic, and save useful items for later. Duplicate article links can be grouped without losing their original feed entries. Local RSS/Atom XML can be imported without contacting a publisher. Save explicitly on your device or export JSON to keep content and reading state; OPML exports subscriptions and folders only. A failed refresh keeps the last good items visible.
 <!-- /coolcode:guide -->
 
-For a real tool, replace this paragraph with one or two plain-text sentences
-about an example, a limit or how to interpret the results. Keep the source,
-coverage, refresh behaviour and a worked example in this README as appropriate.
-When updating a tool, revise any details its behaviour has changed and keep the
-homepage's shorter data-source sentence in `tool.json` accurate.
-The hub imports the marked note into the catalogue README.
+## Start reading
 
-## One-time template setup
+1. Open **Manage feeds**. Paste a public HTTPS RSS/Atom URL and optionally a folder name. This adds a subscription without fetching it. Feed addresses are different from a publisher's normal home page.
+2. Select **Refresh public feeds**, or refresh an individual subscription. The selected URL is sent to the CoolCode gateway, which retrieves it from the publisher. Never use authenticated, tokenized, private-network or paid subscriber URLs in this public service.
+3. Read feed-provided summaries. Search is case-insensitive and requires every entered word to occur in the title, summary or source names. Combine it with a folder/feed selector and All, Unread or Saved. Newest/oldest uses the publisher's publication date, or its update date when publication is unknown; undated items remain undated.
+4. **Mark read**, **Mark unread** and **Save for later** affect the displayed duplicate group. Opening a publisher article also marks its displayed group read. Nothing loads the article until you click its link. **Mark shown as read** changes only the currently rendered items, up to the current Show more page.
+5. Save on this browser/device deliberately, or export JSON before closing the tab. A fresh tab starts empty; use Load saved to restore a device save. No automatic restore or save occurs.
 
-Enable **Settings → General → Template repository** here. This repository does not
-need Pages enabled: its workflow builds/tests but intentionally skips deployment.
-New copies also skip deployment until `scripts/init.py` sets the tool ID to match
-their repository name. This lets you create the repo before configuring Pages.
+For a fully local example, click **Try an invented example**. The bundled example headlines are labelled demonstrations, not news. The optional NASA and Government of Canada starter subscriptions are regular editable sources, not a hardcoded limit on what visitors can follow.
 
-## Start a new tool
+## Imports, exports and retention
 
-1. Select **Use this template → Create a new repository**, choose owner `jsdyer`,
-   a unique lowercase name such as `my-tool`, and public visibility.
-2. Clone the new repository. Use Python 3.12+ and Node 24+.
-3. Set the identity, using a slug that matches the repository name:
+| Format | Import | Export |
+| --- | --- | --- |
+| RSS 2.x / common RSS 1.0 / Atom XML | Local feed content; no network request | Not exported as XML; included in JSON |
+| OPML | Public subscriptions and nested folder names; no automatic fetch | Remote subscriptions and folders only |
+| Feed Harbour JSON | Replaces the open workspace after full validation | Feed content, reading/saved state, source dates and subscriptions |
 
-```sh
-python3 scripts/init.py my-tool --title "My Tool" --description "Describe what this tool does."
+UTF-8 XML is limited to 2 MB; JSON to 10 MB. A workspace supports up to 50 feeds and 5,000 items, and its normalized JSON export must also fit the 10 MB bound. The first 300 entries in each feed capture are parsed. Merged history retains the newest 300 **unsaved** entries per feed plus all saved entries, subject to the global bounds. An over-limit update is rejected while the existing workspace is preserved. The reader is not a permanent archive: export backups you want to retain.
+
+Local feed files cannot be remotely refreshed. Their Imported time is the time they were opened; Publisher update is taken from the feed if present. Private XML remains local, but its content and any visible absolute article links can still be present in a downloaded JSON backup. Relative article links are resolved against a safe feed/channel URL or Atom `xml:base`; unsupported or unsafe links remain plain text. Missing dates stay unknown rather than being replaced by an import/build timestamp.
+
+OPML nesting becomes a folder path, such as `Science / Space`. Duplicate subscription URLs are skipped. Unsupported HTTP/private URLs are counted and skipped; malformed XML is rejected. OPML include URLs are never fetched. JSON imports validate schema `coolcode.feedharbour.v1`, identities, bounds and feed references before replacing the workspace. Unknown fields are discarded. Failed imports preserve the current workspace.
+
+**Remove read, unsaved items** removes those entries from the open tab; a later refresh can bring them back if the publisher still includes them. Removing a feed also removes its captured items in the tab. Device saves remain unchanged until you explicitly save again. Forget saved deletes only the saved browser key, leaving the tab intact.
+
+## Duplicate and identity rules
+
+Feed IDs derive from normalized subscription URLs. Article IDs prefer the publisher's GUID/Atom ID, then its URL, then title plus publication date. Refresh updates an existing ID while retaining its read/saved flags and older captured entries within the retention limits. Different feeds retain separate entries in JSON.
+
+Grouping uses a safe article URL after removing its fragment, `utm_*`, `fbclid`, `gclid`, `mc_cid` and `mc_eid` and sorting remaining query parameters. Meaningful query values remain distinct. No-link entries do not cross-dedupe just because titles match. A group displays the newest dated copy; it is read only when every included copy is read, and saved if any included copy is saved. Group actions apply to the copies included by the current feed/folder filters. Turning grouping off shows each original entry.
+
+## Safety and privacy
+
+All feed titles, summaries, folder names and errors render as text, never raw HTML. XML with DOCTYPE or entity declarations is rejected before parsing. Scripts/styles and tags are removed from summaries; images, tracking pixels, embedded players and external content references are never loaded. External article links permit only safe HTTP/HTTPS URLs and open with `noopener noreferrer`; no javascript/data/file links, credentials, IP literals or custom ports are accepted. This app does not scrape full articles or bypass paid access.
+
+Only an explicit public refresh sends feed URLs to the gateway and publisher. Local XML/JSON/OPML imports, search, reading flags and saved items stay in the browser until the user exports or deliberately saves. Device storage is unencrypted under `coolcode:feedharbour:workspace`; storage quota failures show an error and suggest JSON export. The shared CoolCode counter records aggregate tool opens by ID only, not subscriptions, searches or feed content. Clicking an article contacts its publisher.
+
+The gateway uses HTTPS, public-network restrictions, redirect validation and bounded responses. Its shared cache can retain a successful feed response for 15 minutes; the UI displays the gateway's actual `fetched_at`, not the page-build time. A shared daily allowance and upstream 403/404/429 errors can prevent a refresh. Errors are visible per feed and last-good captures are retained. No automatic polling, background job or scheduled collection occurs in this repository.
+
+## Gateway contract and setup
+
+No repository API secret or variable is needed. `web/config.json` points to the shared gateway:
+
+```text
+GET https://coolcode-visitor-api.jeffdyer.workers.dev/api/feedharbour/feed?url=ENCODED_PUBLIC_HTTPS_FEED
 ```
 
-Review the category, tags and icon in `tool.json`. `access: "browser"` tells the main
-catalogue that the tool works immediately without installation. `--owner` supports a different
-GitHub owner, but only projects owned by `jsdyer` inherit the CoolCode domain.
+Expected successful JSON:
 
-4. Replace the example in `web/` and its tests. Update the privacy explanation,
-   source attribution and README to describe the real tool.
-5. Test and preview:
+```json
+{
+  "fetched_at": "2026-11-25T12:00:00Z",
+  "data": {"url": "https://publisher.example.org/feed.xml", "xml": "<rss>...</rss>"}
+}
+```
+
+The response URL is the final validated publisher URL and is used to resolve relative links. Production requests omit credentials and the referrer. Non-success status, malformed envelopes, invalid XML, timeout, or capacity limits leave good items intact. CORS must allow the deployed CoolCode origin. If deploying the repository independently, configure your own compatible gateway or use local XML imports; never put private credentials into `config.json`.
+
+## Expand or customize
+
+`web/config.json` contains the public gateway and an arbitrary `starterFeeds` array. To add another optional source, append an object:
+
+```json
+{"url":"https://publisher.example.org/feed.xml","title":"My public source","folder":"Local"}
+```
+
+Use a real public feed URL and verify its XML before publishing. The UI derives source counts and folders from actual subscriptions; it does not require the initial two sources. Visitors can add other feeds and imports without changing the repo. Existing JSON exports preserve their own feeds and captured dates even if starters change. Starter additions do not contact providers until a visitor chooses Refresh.
+
+The browser model and retention bounds live in `web/model.mjs`; XML parsing in `web/xml.mjs`; UI in `web/app.mjs`. Update fixtures, browser flows and documentation when changing supported formats or identity rules. Saved workspace schemas must remain readable or receive an explicit migration.
+
+Run checks, commit and push to `main` to publish code/config changes. There is no data refresh workflow to invoke, API key to enter, or collector guard to register. The shared gateway is maintained separately in the hub; app changes alone cannot deploy gateway changes.
+
+## Develop and publish
+
+Node 24+, Python 3.12+, no npm install or production dependency:
 
 ```sh
 node --test tests/*.test.mjs
@@ -50,130 +90,25 @@ python3 scripts/build.py
 python3 -m http.server 8000 --directory dist
 ```
 
-Open `http://localhost:8000/`. The example trims lines, skips blanks and removes exact
-duplicates, preserving first-seen order and capitalization. It processes the text in tab memory. Update that explanation if your app behaves differently.
-
-CI also tests the browser flow and mobile layout at a project subpath. Replace the
-sample assertions in `tests/browser_smoke.py` when implementing your own UI. To run
-that check locally (optional for ordinary preview):
+Browser regression tests use Playwright with the runner's Google Chrome:
 
 ```sh
-python3 -m venv .venv
-. .venv/bin/activate
 python3 -m pip install -r tests/browser-requirements.txt
-python3 -m playwright install --with-deps chromium
-python3 tests/browser_smoke.py
+CHROMIUM_PATH="$(command -v google-chrome)" python3 tests/browser_smoke.py
 ```
 
-Playwright is a test-only dependency; the app and its static build do not use it.
+Pure-model tests cover malicious URL rejection, canonical dedupe, dates, arbitrary added sources, refresh state, retention and exports. Browser tests exercise actual RSS/Atom/OPML DOM parsing, namespaces and relative links, local-only imports, the gateway envelope, quota failure retention, read/save/filter actions, JSON/OPML downloads and mobile overflow. Gateway calls in CI are deterministic fixtures; deployment still requires a real public gateway smoke check.
 
-## Expand or customize
+GitHub Actions uses Ubuntu 24.04 and Google Chrome, checks PRs, saves screenshots and a preview, then publishes successful `main` builds. Set **Settings → Pages → Source → GitHub Actions**. Only `dist/` is deployed; do not commit it or add a CNAME. App assets remain relative for `/feedharbour/`.
 
-Every implemented tool should replace this section with its actual configuration
-path and a working example. A small `config.json` can hold default entities,
-query presets, source choices and request limits. Those defaults should be useful
-starting points, while visitors can enter other valid inputs whenever the source
-supports them. Keep provider limits explicit and separate from the starter list.
+Follow the [CoolCode lifecycle](https://github.com/jsdyer/jsdyer.github.io/blob/main/docs/tool-lifecycle.md): import `tool.json` and this marked guide in the hub, regenerate homepage/README, Worker registration and sitemap, reconcile repository coverage and ordinary live-page probes, and verify gateway behaviour. This app has **no collector/freshness watchdog schedule**. Its public-page and shared gateway probes are integration concerns, not additional cron jobs in this repo.
 
-Derive counts, filters and item validation from the current data. Do not require
-exactly the initial number of items. Add a test that expands the configuration,
-and keep historical captures readable when their coverage differs from today's
-watchlist. Display the selected capture date accurately.
+## Primary references and optional starters
 
-Document which changes need only a normal code push and which also need a data
-refresh. Include the refresh command or exact GitHub workflow and input, followed
-by the publication step. A successful code build need not mean a new collection
-has been fetched. The starter itself has no external collection or refresh.
+- [RSS specification](https://www.rssboard.org/rss-specification)
+- [Atom RFC 4287](https://www.rfc-editor.org/rfc/rfc4287)
+- [OPML 2.0](https://2005.opml.org/spec2.html)
+- [NASA's official feed directory](https://www.nasa.gov/rss-feeds/)
+- [Government of Canada RSS subscription directory](https://www.canada.ca/en/news/subscribe-emails.html)
 
-## Publish and register
-
-When the actual tool is ready, in the **new tool repository** set **Settings → Pages → Build and deployment →
-Source → GitHub Actions**. Push to `main`, or manually run **Browser tool · Check and
-publish** after enabling Pages. If the initial deployment ran before Pages was enabled,
-enable it and rerun. PRs only check/build and provide a downloadable preview artifact.
-
-Keep `{{VISIT_COUNTER}}` in the page head and `{{ISSUE_LINK}}` in the footer when replacing the starter UI. The build enables these for initialized CoolCode repositories. The shared counter records aggregate opens on coolcode.ca by public tool ID. Toolbox inputs and URL parameters are excluded. The issue link opens a reporting form with the tool already selected.
-
-Keep app-owned asset paths and module imports relative. Check `https://coolcode.ca/my-tool/`.
-Do not add a CNAME or set `coolcode.ca` as this project's custom domain; the account
-site supplies it. Only successful `main` builds deploy.
-
-After verifying the app, copy the reviewed object from `tool.json` into `data/tools.json`
-in [the main site](https://github.com/jsdyer/jsdyer.github.io). Each tool still builds
-independently. The hub generates the visitor Worker ID list, watchdog targets and sitemap; deploy and verify the affected services before considering the release complete. Update the hub record when listing metadata changes; the hub is the
-authority for discovery. Every change must follow the [mandatory lifecycle](https://github.com/jsdyer/jsdyer.github.io/blob/main/docs/tool-lifecycle.md). App-only changes may leave integrations unchanged, but this must be checked; documentation, source fields, schedules and registration changes also require the hub update.
-
-The main site separates **Use in your browser** from **Install yourself**. An app
-that asks for a file is still a browser tool. Standalone Linux packages should start
-in their own repositories with their own build/release workflow, rather than copying
-this browser-only scaffold. Their hub record uses `access: "install"`, links to an
-installation guide, and includes `requirements`.
-
-## Files
-
-| Path | Purpose |
-| --- | --- |
-| `tool.json` | Page metadata and a ready-to-copy catalogue record |
-| `web/` | HTML, responsive CSS, DOM interactions and separate model logic |
-| `scripts/build.py` | Escape metadata and build `web/` into `dist/` |
-| `scripts/init.py` | Set a new project's identity |
-| `scripts/add_schedule_guard.py` | Add an opt-in guard for explicitly selected scheduled collectors |
-| `tests/` | Application and builder tests |
-| `.github/workflows/pages.yml` | Check PRs and publish successful main builds |
-| `AGENTS.md` | Instructions for future coding work |
-
-Namespace optional storage as `coolcode:<tool-id>:<key>`; CoolCode paths share a
-browser origin. Don't save pasted text/uploads by default. Document external APIs
-and send only the information needed for the selected action. Never embed secrets.
-
-Scheduled refresh is opt-in. Validate source data before deploying, display its date,
-and preserve the last good deployment on failure. Public-repository schedules can
-stop after 60 days without repository activity.
-
-When adding a collector with `on.schedule`, also keep `workflow_dispatch` available
-for the independent Linux server scheduler. Generate a separate schedule guard,
-listing every scheduled collector in the repository:
-
-```sh
-python3 scripts/add_schedule_guard.py --repository jsdyer/my-tool .github/workflows/pages.yml
-```
-
-Replace the repository and workflow paths with the real values. Review the generated
-allowlist, commit `.github/workflows/schedule-guard.yml`, and verify its first push
-run. Re-run the command with the complete list when adding, renaming or removing a
-collector. The guard runs weekly, independently of collector failures, and calls
-GitHub's enable-workflow API for those paths and itself. It restores workflows
-disabled for inactivity and preserves manually disabled workflows. It does not
-fetch data, create dummy commits or change source/check timestamps.
-
-This is an interim mitigation: GitHub does not document active-workflow renewal as
-a permanent exemption, and scheduled runs can be delayed or dropped. Register the
-collector and its freshness expectations in the independent server scheduler too.
-Document its real data check, collection and publication steps in the tool README.
-The starter has no scheduled collector and therefore ships no recurring guard job.
-
-Templates don't propagate future edits automatically. Adopt fixes explicitly and
-consider a versioned reusable workflow once several tools confirm the shared process.
-Choose and add the intended software license before distributing a new project.
-
-## Search metadata
-
-Initialize the page title with a concise task phrase, while keeping the creative
-app name in `--title`:
-
-```sh
-python3 scripts/init.py line-cleaner --title "Line Cleaner" --description "Trim lines and remove exact duplicates in your browser." --search-title "Trim Lines & Remove Duplicates"
-```
-
-The build adds static `WebApplication` JSON-LD, a free CAD offer and social metadata.
-For initialized jsdyer tools it also adds the canonical CoolCode URL. Forks and the
-uninitialized template do not claim a CoolCode canonical. Review the application
-category in `scripts/build.py` when adapting the tool; the starter is a utility.
-Do not invent ratings or reviews. Search markup does not guarantee a rich result.
-
-For a saved public dataset, pass Dataset objects to `add_search_metadata` from the
-app builder, with actual source attribution, licence, coverage and download URLs.
-Derive counts and dates from the same snapshot used by the app and show those details
-on the page. Keep source edition, retrieval and page-build time distinct. Omit an
-unknown source modification date instead of setting it to the current build time.
-Read the hub's `docs/search-discovery.md` for the release checklist.
+Reviewed 2026-11-25. These are format/source references, not a snapshot date for visitor-selected feeds. Publisher and retrieval dates are displayed separately in Manage feeds.

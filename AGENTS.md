@@ -49,3 +49,13 @@
   the application name on the page. Retain the build-time search metadata helper,
   choose an accurate app category, and derive any Dataset metadata from real inputs.
   Never substitute a build timestamp for a source edition or fabricate ratings.
+
+## Feed Harbour invariants
+
+- No API secrets, automatic source fetch, automatic local save or scheduled collector.
+- Never fetch private/tokenized feeds through the public gateway; local XML imports stay local.
+- Never render feed HTML, load tracking images, fetch OPML includes or scrape full articles.
+- Reject DOCTYPE/entities before XML parsing. Keep safe links, bounded imports and preserved
+  last-good data on failure. Retain feed/article identities and reading flags across refresh.
+- Treat publisher dates and successful capture dates separately. Fixtures are not live news.
+- Keep arbitrary visitor subscriptions independent of the optional starter list.

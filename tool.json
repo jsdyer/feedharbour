@@ -1,16 +1,23 @@
 {
-  "id": "coolcode-tool-template",
-  "title": "CoolCode Tool Starter",
-  "description": "A browser-only example that trims lines and removes exact duplicates.",
-  "category": "security",
-  "tags": ["text", "lines", "duplicates"],
-  "icon": "scan-search",
-  "url": "/coolcode-tool-template/",
-  "source": "https://github.com/jsdyer/coolcode-tool-template",
+  "id": "feedharbour",
+  "title": "Feed Harbour",
+  "description": "Read public RSS and Atom feeds together, filter headlines, and keep a private reading list.",
+  "category": "media",
+  "tags": [
+    "RSS",
+    "Atom",
+    "OPML",
+    "news",
+    "reader",
+    "feeds"
+  ],
+  "icon": "film",
+  "url": "/feedharbour/",
+  "source": "https://github.com/jsdyer/feedharbour",
   "hosting": "project",
   "access": "browser",
   "data_info": {
-    "mode": "local",
-    "detail": "The browser reads the text you paste and compares its lines."
+    "mode": "mixed",
+    "detail": "Your public RSS/Atom feeds are fetched on demand through the CoolCode gateway. Local XML, subscriptions and reading state stay in the browser unless you deliberately save or export them."
   }
 }
