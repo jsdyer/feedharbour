@@ -1,6 +1,7 @@
 import { LIMITS, emptyWorkspace, makeFeed, normalizeWorkspace, addFeeds, mergeCapture, articleGroups, changeArticleState, exportOPML, safeURL, validDate } from './model.mjs';
 import { parseFeed, parseOPML } from './xml.mjs';
 import { normalizeDirectory, directoryMatches, directorySubscriptions } from './directory.mjs';
+import { requestFeed } from './request.mjs';
 const $=s=>document.querySelector(s),storageKey='coolcode:feedharbour:workspace';
 let directory=null,directoryShown=12;
 let workspace=emptyWorkspace(),config=null,filterState='all',shown=40,refreshing=false,controller=null,stopped=false,generation=0;
@@ -49,12 +50,8 @@ async function refreshFeeds(ids){
   if(refreshing||!config)return;refreshing=true;stopped=false;controller=new AbortController();const token=generation;$('#stop').hidden=false;render();let good=0,bad=0,truncated=0;
   try{for(const id of ids){if(stopped||token!==generation)break;const feed=workspace.feeds.find(f=>f.id===id&&f.kind==='remote');if(!feed)continue;message(`Fetching ${feed.title}… (${good+bad+1} of ${ids.length})`);
       try{
-        const url=new URL(config.gateway);url.searchParams.set('url',feed.url);
-        const timeout=setTimeout(()=>controller.abort(),25000);let response,raw;
-        try{response=await fetch(url,{signal:controller.signal,credentials:'omit',referrerPolicy:'no-referrer'});raw=await response.text();}finally{clearTimeout(timeout);}
-        if(!response.ok)throw new Error(response.status===429?'The shared gateway allowance is temporarily exhausted. Try later.':`Feed request returned HTTP ${response.status}.`);
-        if(raw.length>LIMITS.xmlBytes*3)throw new Error('Gateway response exceeded the size limit.');const payload=JSON.parse(raw);
-        if(typeof payload?.data?.xml!=='string'||!safeURL(payload?.data?.url,'',true)||!validDate(payload?.fetched_at))throw new Error('Gateway returned an invalid feed envelope.');
+        const timeout=setTimeout(()=>controller.abort(),25000);let payload;
+        try{payload=await requestFeed(feed.url,config,{signal:controller.signal});}finally{clearTimeout(timeout);}
         const capture=parseFeed(payload.data.xml,payload.data.url);if(token!==generation)break;workspace=mergeCapture(workspace,id,capture,payload.fetched_at);good++;if(capture.truncated)truncated++;dirty();
       }catch(e){if(stopped)break;bad++;const current=workspace.feeds.find(f=>f.id===id);if(current)current.error=e.name==='AbortError'?'Request timed out. Last good items kept.':`${e.message} Last good items kept.`;if(controller.signal.aborted)controller=new AbortController();}
       render();

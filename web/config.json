@@ -1,3 +1,12 @@
 {
-  "gateway": "https://coolcode-visitor-api.jeffdyer.workers.dev/api/feedharbour/feed"
+  "gateway": "https://coolcode-visitor-api.jeffdyer.workers.dev/api/feedharbour/feed",
+  "firstPartyFeeds": [
+    "/researchledger/feeds/dal.xml",
+    "/researchledger/feeds/smu.xml",
+    "/researchledger/feeds/ubc.xml",
+    "/researchledger/feeds/sfu.xml",
+    "/packagepulse/feed.xml",
+    "/rackexpiry/feed.xml",
+    "/rackexpiry/releases.xml"
+  ]
 }
