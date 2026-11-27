@@ -109,3 +109,31 @@ for(const id of ['directory-category','directory-search'])$('#'+id).addEventList
 $('#directory-more').addEventListener('click',()=>{directoryShown+=12;renderDirectory();});
 $('#add-topic').addEventListener('click',()=>{if(directory){const category=$('#directory-category').value;if(category)addRecommendations(directoryMatches(directory,{category}).map(f=>f.id));}});
 try{const r=await fetch('./data/feed-directory.json');if(!r.ok)throw new Error('Directory could not load.');directory=normalizeDirectory(await r.json());options($('#directory-category'),directory.categories.map(c=>[c.id,`${c.title} (${directory.feeds.filter(f=>f.category===c.id).length})`]),'All topics');renderDirectory();}catch(e){$('#directory-meta').textContent=`${e.message} You can still add your own feeds or import OPML below.`;$('#directory-content').hidden=true;$('#directory-toggle').disabled=true;}
+
+// An explicit directory link opens the weekly capture in this tab. No publisher is contacted.
+const smallWebSelection = new URLSearchParams(location.search).get('smallweb');
+if (smallWebSelection) {
+  try {
+    const responses = await Promise.all([fetch('./data/small-web-sites.json'), fetch('./data/small-web.json')]);
+    if (!responses.every(response => response.ok)) throw new Error('The weekly capture could not be loaded.');
+    const [sites, snapshot] = await Promise.all(responses.map(response => response.json()));
+    const selected = sites.filter(site => (smallWebSelection === 'all' || site.id === smallWebSelection) && snapshot.captures[site.id]?.items?.length);
+    if (!selected.length) throw new Error('No captured site matches this link. Browse Small Web North to pick a publisher.');
+    let next = workspace;
+    for (const site of selected) {
+      const capture = snapshot.captures[site.id];
+      const feed = makeFeed(site.feed, site.name, 'Small Web North');
+      next = mergeCapture(addFeeds(next, [feed]).workspace, feed.id, {title: site.name, items: capture.items}, capture.last_success_at);
+    }
+    workspace = next;
+    setDirectoryOpen(false);
+    dirty();
+    render();
+    const retained = selected.filter(site => snapshot.captures[site.id].status !== 'ok').length;
+    message(`Small Web North · ${selected.length === 1 ? selected[0].name : selected.length + ' publishers'}. Weekly capture checked ${snapshot.checked_at.slice(0, 10)} UTC. Open a headline to read the original.` + (retained ? ` ${retained} unavailable feed(s) show an earlier capture.` : ''));
+    $('#reading').focus({preventScroll:true});
+    $('#reading').scrollIntoView();
+  } catch (error) {
+    message(error.message, true);
+  }
+}

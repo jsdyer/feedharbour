@@ -1,0 +1,383 @@
+{
+  "checked_at": "2026-11-27T17:00:26Z",
+  "captures": {
+    "julia-evans": {
+      "status": "ok",
+      "checked_at": "2026-11-27T17:00:26Z",
+      "last_success_at": "2026-11-27T17:00:26Z",
+      "items": [
+        {
+          "title": "Replacing the old battery on rechargeable bike lights",
+          "url": "https://jvns.ca/blog/2026/09/27/replacing-the-old-battery-on-rechargeable-bike-lights/",
+          "uid": "https://jvns.ca/blog/2026/09/27/replacing-the-old-battery-on-rechargeable-bike-lights/",
+          "published": "",
+          "updated": "2026-09-27T00:00:00Z"
+        },
+        {
+          "title": "Some more things about Django I've been enjoying",
+          "url": "https://jvns.ca/blog/2026/07/21/more-nice-django-things/",
+          "uid": "https://jvns.ca/blog/2026/07/21/more-nice-django-things/",
+          "published": "",
+          "updated": "2026-07-21T00:00:00Z"
+        },
+        {
+          "title": "Learning a few things about running SQLite",
+          "url": "https://jvns.ca/blog/2026/07/17/learning-about-running-sqlite/",
+          "uid": "https://jvns.ca/blog/2026/07/17/learning-about-running-sqlite/",
+          "published": "",
+          "updated": "2026-07-17T00:00:00Z"
+        },
+        {
+          "title": "Moving away from Tailwind, and learning to structure my CSS",
+          "url": "https://jvns.ca/blog/2026/05/15/moving-away-from-tailwind--and-learning-to-structure-my-css-/",
+          "uid": "https://jvns.ca/blog/2026/05/15/moving-away-from-tailwind--and-learning-to-structure-my-css-/",
+          "published": "",
+          "updated": "2026-05-15T00:00:00Z"
+        },
+        {
+          "title": "Links to CSS colour palettes",
+          "url": "https://jvns.ca/blog/2026/05/04/css-colour-palettes/",
+          "uid": "https://jvns.ca/blog/2026/05/04/css-colour-palettes/",
+          "published": "",
+          "updated": "2026-05-04T00:00:00Z"
+        },
+        {
+          "title": "Testing Vue components in the browser",
+          "url": "https://jvns.ca/blog/2026/05/02/testing-vue-components-in-the-browser/",
+          "uid": "https://jvns.ca/blog/2026/05/02/testing-vue-components-in-the-browser/",
+          "published": "",
+          "updated": "2026-05-02T00:00:00Z"
+        },
+        {
+          "title": "Examples for the tcpdump and dig man pages",
+          "url": "https://jvns.ca/blog/2026/03/10/examples-for-the-tcpdump-and-dig-man-pages/",
+          "uid": "https://jvns.ca/blog/2026/03/10/examples-for-the-tcpdump-and-dig-man-pages/",
+          "published": "",
+          "updated": "2026-03-10T00:00:00Z"
+        },
+        {
+          "title": "Notes on clarifying man pages",
+          "url": "https://jvns.ca/blog/2026/02/18/man-pages/",
+          "uid": "https://jvns.ca/blog/2026/02/18/man-pages/",
+          "published": "",
+          "updated": "2026-02-18T00:00:00Z"
+        }
+      ]
+    },
+    "evan-prodromou": {
+      "status": "ok",
+      "checked_at": "2026-11-27T17:00:26Z",
+      "last_success_at": "2026-11-27T17:00:26Z",
+      "items": [
+        {
+          "title": "Birthday Inventory 2026",
+          "url": "https://evanp.me/2026/10/14/birthday-inventory-2026/",
+          "uid": "https://evanp.me/?p=5363",
+          "published": "2026-10-14T22:52:25Z",
+          "updated": ""
+        },
+        {
+          "title": "Claude won’t let me talk about the Gaza genocide",
+          "url": "https://evanp.me/2026/07/23/claude-wont-let-me-talk-about-the-gaza-genocide/",
+          "uid": "https://evanp.me/2026/07/23/claude-wont-let-me-talk-about-the-gaza-genocide/",
+          "published": "2026-07-23T13:19:18Z",
+          "updated": ""
+        },
+        {
+          "title": "Notes for US Performers in Montreal",
+          "url": "https://evanp.me/2026/04/04/notes-for-us-performers-in-montreal/",
+          "uid": "http://evanp.me/2026/04/04/notes-for-us-performers-in-montreal/",
+          "published": "2026-04-04T19:42:26Z",
+          "updated": ""
+        },
+        {
+          "title": "New Year, New Me",
+          "url": "https://evanp.me/2026/01/03/new-year-new-me/",
+          "uid": "https://evanp.me/?p=4202",
+          "published": "2026-01-03T21:32:00Z",
+          "updated": ""
+        },
+        {
+          "title": "Writing Recommendations Early",
+          "url": "https://evanp.me/2025/12/31/writing-recommendations-early/",
+          "uid": "https://evanp.me/?p=4082",
+          "published": "2025-12-31T17:50:53Z",
+          "updated": ""
+        },
+        {
+          "title": "Working full time on the Social Web",
+          "url": "https://evanp.me/2025/12/30/working-full-time-on-the-social-web/",
+          "uid": "https://evanp.me/?p=3509",
+          "published": "2025-12-30T22:52:57Z",
+          "updated": ""
+        },
+        {
+          "title": "US DOT Aviation Climate Plan",
+          "url": "https://evanp.me/2025/11/08/us-dot-aviation-climate-plan/",
+          "uid": "https://evanp.me/?p=2920",
+          "published": "2025-11-08T17:38:39Z",
+          "updated": ""
+        },
+        {
+          "title": "Birthday Inventory 2025",
+          "url": "https://evanp.me/2025/10/14/birthday-inventory-2025/",
+          "uid": "https://evanp.me/?p=2874",
+          "published": "2025-10-14T22:57:03Z",
+          "updated": ""
+        }
+      ]
+    },
+    "michael-geist": {
+      "status": "ok",
+      "checked_at": "2026-11-27T17:00:26Z",
+      "last_success_at": "2026-11-27T17:00:26Z",
+      "items": [
+        {
+          "title": "Doubling Down on Metadata: Senate Committee Completes Bill C-22 Review With Limited Changes to Lawful Access",
+          "url": "https://www.michaelgeist.ca/2026/11/doubling-down-on-metadata-senate-committee-completes-bill-c-22-review-with-limited-changes-to-lawful-access/?utm_source=rss&utm_medium=rss&utm_campaign=doubling-down-on-metadata-senate-committee-completes-bill-c-22-review-with-limited-changes-to-lawful-access",
+          "uid": "https://www.michaelgeist.ca/?p=22610",
+          "published": "2026-11-26T14:54:12Z",
+          "updated": ""
+        },
+        {
+          "title": "The Bill C-22 Surveillance Map: Public Safety Wants Providers to Keep Location Data They Don’t Collect or Retain Today",
+          "url": "https://www.michaelgeist.ca/2026/11/the-bill-c-22-surveillance-map-public-safety-wants-providers-to-keep-location-data-they-dont-collect-or-retain-today/?utm_source=rss&utm_medium=rss&utm_campaign=the-bill-c-22-surveillance-map-public-safety-wants-providers-to-keep-location-data-they-dont-collect-or-retain-today",
+          "uid": "https://www.michaelgeist.ca/?p=22600",
+          "published": "2026-11-25T16:33:37Z",
+          "updated": ""
+        },
+        {
+          "title": "Dropped Call: Unpacking the Government’s Apparent Reversal on a Fourth Wireless Carrier Policy",
+          "url": "https://www.michaelgeist.ca/2026/11/dropped-call-unpacking-the-governments-apparent-reversal-on-a-fourth-wireless-carrier-policy/?utm_source=rss&utm_medium=rss&utm_campaign=dropped-call-unpacking-the-governments-apparent-reversal-on-a-fourth-wireless-carrier-policy",
+          "uid": "https://www.michaelgeist.ca/?p=22592",
+          "published": "2026-11-25T13:00:00Z",
+          "updated": ""
+        },
+        {
+          "title": "No Compromise: Senate Heads to Clause-by-Clause on Bill C-22 After Police Reject a Necessary and Proportionate Standard",
+          "url": "https://www.michaelgeist.ca/2026/11/no-compromise-senate-heads-to-clause-by-clause-on-bill-c-22-after-police-reject-a-necessary-and-proportionate-standard/?utm_source=rss&utm_medium=rss&utm_campaign=no-compromise-senate-heads-to-clause-by-clause-on-bill-c-22-after-police-reject-a-necessary-and-proportionate-standard",
+          "uid": "https://www.michaelgeist.ca/?p=22583",
+          "published": "2026-11-24T12:11:25Z",
+          "updated": ""
+        },
+        {
+          "title": "The Law Bytes Podcast, Episode 284: Lawful Access Comes to the Senate – My Appearance on Bill C-22 Before the Senate National Security Committee",
+          "url": "https://www.michaelgeist.ca/2026/11/the-law-bytes-podcast-episode-284-lawful-access-comes-to-the-senate-my-appearance-on-bill-c-22-before-the-senate-national-security-committee/?utm_source=rss&utm_medium=rss&utm_campaign=the-law-bytes-podcast-episode-284-lawful-access-comes-to-the-senate-my-appearance-on-bill-c-22-before-the-senate-national-security-committee",
+          "uid": "https://www.michaelgeist.ca/?p=22578",
+          "published": "2026-11-23T13:00:05Z",
+          "updated": ""
+        },
+        {
+          "title": "Apples to Orange: Why Europe Doesn’t Make the Case for a Three-Player Wireless Market in Canada",
+          "url": "https://www.michaelgeist.ca/2026/11/apples-to-orange-why-europe-doesnt-make-the-case-for-a-three-player-wireless-market-in-canada/?utm_source=rss&utm_medium=rss&utm_campaign=apples-to-orange-why-europe-doesnt-make-the-case-for-a-three-player-wireless-market-in-canada",
+          "uid": "https://www.michaelgeist.ca/?p=22569",
+          "published": "2026-11-20T13:05:53Z",
+          "updated": ""
+        },
+        {
+          "title": "Three Fixes for Lawful Access: Making the Case for Amending Bill C-22 at the Senate National Security Committee",
+          "url": "https://www.michaelgeist.ca/2026/11/three-fixes-for-lawful-access-making-the-case-for-amending-bill-c-22-at-the-senate-national-security-committee/?utm_source=rss&utm_medium=rss&utm_campaign=three-fixes-for-lawful-access-making-the-case-for-amending-bill-c-22-at-the-senate-national-security-committee",
+          "uid": "https://www.michaelgeist.ca/?p=22565",
+          "published": "2026-11-19T10:00:31Z",
+          "updated": ""
+        },
+        {
+          "title": "Jewish Students Are Telling the Same Story Everywhere But Only Canada Refuses To Listen",
+          "url": "https://www.michaelgeist.ca/2026/11/jewish-students-are-telling-the-same-story-everywhere-but-only-canada-refuses-to-listen/?utm_source=rss&utm_medium=rss&utm_campaign=jewish-students-are-telling-the-same-story-everywhere-but-only-canada-refuses-to-listen",
+          "uid": "https://www.michaelgeist.ca/?p=22555",
+          "published": "2026-11-18T13:00:21Z",
+          "updated": ""
+        }
+      ]
+    },
+    "miss604": {
+      "status": "ok",
+      "checked_at": "2026-11-27T17:00:26Z",
+      "last_success_at": "2026-11-27T17:00:26Z",
+      "items": [
+        {
+          "title": "British Columbia to Host 2029 Grey Cup",
+          "url": "https://miss604.com/2026/11/british-columbia-to-host-2029-grey-cup/",
+          "uid": "https://miss604.com/?p=217543",
+          "published": "2026-11-26T17:44:36Z",
+          "updated": ""
+        },
+        {
+          "title": "Things to do in Vancouver This Weekend Events November 27-29",
+          "url": "https://miss604.com/2026/11/things-to-do-in-vancouver-this-weekend-events-november/",
+          "uid": "https://miss604.com/?p=217477",
+          "published": "2026-11-25T22:00:00Z",
+          "updated": ""
+        },
+        {
+          "title": "Where to Watch The Nutcracker in Vancouver",
+          "url": "https://miss604.com/2026/11/where-to-watch-the-nutcracker-in-vancouver/",
+          "uid": "https://miss604.com/?p=217512",
+          "published": "2026-11-25T21:12:28Z",
+          "updated": ""
+        },
+        {
+          "title": "GIVEAWAY Indigenous Comedians Host Christmas Roast & Showcase",
+          "url": "https://miss604.com/2026/11/indigenous-comedy-christmas-roast-showcase/",
+          "uid": "https://miss604.com/?p=217495",
+          "published": "2026-11-25T19:29:25Z",
+          "updated": ""
+        },
+        {
+          "title": "Events in Vancouver December 2026",
+          "url": "https://miss604.com/2026/11/events-in-vancouver-december-2026/",
+          "uid": "https://miss604.com/?p=217316",
+          "published": "2026-11-24T21:56:55Z",
+          "updated": ""
+        },
+        {
+          "title": "Festive Fun at the Gulf of Georgia Cannery in Steveston",
+          "url": "https://miss604.com/2026/11/festive-fun-at-the-gulf-of-georgia-cannery-in-steveston/",
+          "uid": "https://miss604.com/?p=217415",
+          "published": "2026-11-24T20:36:39Z",
+          "updated": ""
+        },
+        {
+          "title": "Free Holiday Events in Vancouver & The Valley 2026",
+          "url": "https://miss604.com/2026/11/free-holiday-events-in-vancouver-the-valley-2026/",
+          "uid": "https://miss604.com/?p=216485",
+          "published": "2026-11-24T20:00:00Z",
+          "updated": ""
+        },
+        {
+          "title": "Stocking Stuffers for Seniors at London Drugs",
+          "url": "https://miss604.com/2026/11/stocking-stuffers-for-seniors-at-london-drugs/",
+          "uid": "https://miss604.com/?p=217403",
+          "published": "2026-11-23T21:19:35Z",
+          "updated": ""
+        }
+      ]
+    },
+    "hans-on-the-bike": {
+      "status": "ok",
+      "checked_at": "2026-11-27T17:00:26Z",
+      "last_success_at": "2026-11-27T17:00:26Z",
+      "items": [
+        {
+          "title": "Ottawa Cycling Magazine – November 2026",
+          "url": "https://hansonthebike.com/2026/11/25/ottawa-cycling-magazine-november-2026/",
+          "uid": "https://hansonthebike.com/?p=27322",
+          "published": "2026-11-25T10:00:00Z",
+          "updated": ""
+        },
+        {
+          "title": "NCC: “How About a Gondola to Gatineau Park?”",
+          "url": "https://hansonthebike.com/2026/11/14/how-about-a-gondola-to-gatineau-park/",
+          "uid": "https://hansonthebike.com/?p=27280",
+          "published": "2026-11-14T10:00:00Z",
+          "updated": ""
+        },
+        {
+          "title": "10 Takeaways from the Ottawa Municipal Election",
+          "url": "https://hansonthebike.com/2026/10/28/ottawa-elections-2026/",
+          "uid": "https://hansonthebike.com/?p=27243",
+          "published": "2026-10-28T09:00:00Z",
+          "updated": ""
+        },
+        {
+          "title": "What if the next traffic light knows you are arriving?",
+          "url": "https://hansonthebike.com/2026/10/18/das-zo-gefietst-app-netherlands/",
+          "uid": "https://hansonthebike.com/?p=26725",
+          "published": "2026-10-18T09:25:00Z",
+          "updated": ""
+        },
+        {
+          "title": "Ottawa Cycling Magazine – September 2026",
+          "url": "https://hansonthebike.com/2026/09/30/ottawa-cycling-magazine-september-2026/",
+          "uid": "https://hansonthebike.com/?p=27133",
+          "published": "2026-09-30T09:25:00Z",
+          "updated": ""
+        },
+        {
+          "title": "The Story Behind Lithium-ion Fires in Ottawa",
+          "url": "https://hansonthebike.com/2026/09/27/e-bike-fires-in-ottawa/",
+          "uid": "https://hansonthebike.com/?p=26902",
+          "published": "2026-09-27T09:00:00Z",
+          "updated": ""
+        },
+        {
+          "title": "Recap NCC Bike Night 2026",
+          "url": "https://hansonthebike.com/2026/09/14/recap-ncc-bike-night-2026/",
+          "uid": "https://hansonthebike.com/?p=26859",
+          "published": "2026-09-14T09:30:00Z",
+          "updated": ""
+        },
+        {
+          "title": "NCC Bike Night in Ottawa 2026 Edition",
+          "url": "https://hansonthebike.com/2026/09/11/ncc-bike-night-in-ottawa-2026-edition/",
+          "uid": "https://hansonthebike.com/?p=26825",
+          "published": "2026-09-11T09:30:00Z",
+          "updated": ""
+        }
+      ]
+    },
+    "the-tyee": {
+      "status": "ok",
+      "checked_at": "2026-11-27T17:00:26Z",
+      "last_success_at": "2026-11-27T17:00:26Z",
+      "items": [
+        {
+          "title": "New Report Dissects Alberta’s Health-Care Mess",
+          "url": "https://thetyee.ca/News/2026/11/27/New-Report-Alberta-Health-Care-Mess/",
+          "uid": "https://thetyee.ca/News/2026/11/27/New-Report-Alberta-Health-Care-Mess/",
+          "published": "2026-11-27T08:40:00Z",
+          "updated": ""
+        },
+        {
+          "title": "Helping BC’s Salmon Make It Home",
+          "url": "https://thetyee.ca/Presents/2026/11/27/Helping-BC-Salmon-Make-It-Home/",
+          "uid": "https://thetyee.ca/Presents/2026/11/27/Helping-BC-Salmon-Make-It-Home/",
+          "published": "2026-11-27T08:30:00Z",
+          "updated": ""
+        },
+        {
+          "title": "The Tyee Podcast: Staring Down Canada’s New Pipeline",
+          "url": "https://thetyee.ca/Tyeenews/2026/11/27/Tyee-Podcast-Canada-New-Pipeline/",
+          "uid": "https://thetyee.ca/Tyeenews/2026/11/27/Tyee-Podcast-Canada-New-Pipeline/",
+          "published": "2026-11-27T08:20:00Z",
+          "updated": ""
+        },
+        {
+          "title": "Sweet! The Tyee Swag Shop Is Now Open",
+          "url": "https://thetyee.ca/Tyeenews/2026/11/27/Tyee-Swag-Shop-Now-Open/",
+          "uid": "https://thetyee.ca/Tyeenews/2026/11/27/Tyee-Swag-Shop-Now-Open/",
+          "published": "2026-11-27T08:10:00Z",
+          "updated": ""
+        },
+        {
+          "title": "Sussanne Skidmore Re-Elected to Lead BC Federation of Labour",
+          "url": "https://thetyee.ca/News/2026/11/26/Sussanne-Skidmore-Elected-BC-Federation-Labour-President-Again/",
+          "uid": "https://thetyee.ca/News/2026/11/26/Sussanne-Skidmore-Elected-BC-Federation-Labour-President-Again/",
+          "published": "2026-11-26T23:10:00Z",
+          "updated": ""
+        },
+        {
+          "title": "Pipeline Threatens Salmon Streams and Endangered Species, New Studies Reveal",
+          "url": "https://thetyee.ca/News/2026/11/26/Pipeline-Threatens-Salmon-Streams-Endangered-Species/",
+          "uid": "https://thetyee.ca/News/2026/11/26/Pipeline-Threatens-Salmon-Streams-Endangered-Species/",
+          "published": "2026-11-26T20:30:00Z",
+          "updated": ""
+        },
+        {
+          "title": "Doerkson’s Mandate Letters Aim to Reverse NDP’s Actions",
+          "url": "https://thetyee.ca/News/2026/11/26/Doerkson-Mandate-Letters/",
+          "uid": "https://thetyee.ca/News/2026/11/26/Doerkson-Mandate-Letters/",
+          "published": "2026-11-26T08:40:00Z",
+          "updated": ""
+        },
+        {
+          "title": "Holding the Line Against Forces with Billions",
+          "url": "https://thetyee.ca/Presents/2026/11/26/Holding-Line-Against-Forces-Billions/",
+          "uid": "https://thetyee.ca/Presents/2026/11/26/Holding-Line-Against-Forces-Billions/",
+          "published": "2026-11-26T08:30:00Z",
+          "updated": ""
+        }
+      ]
+    }
+  }
+}

@@ -20,6 +20,26 @@
   "access": "browser",
   "data_info": {
     "mode": "mixed",
-    "detail": "Manually checked feed recommendations and your own RSS/Atom sources. Public feeds load on demand; local XML and reading state stay in your browser unless saved or exported."
+    "detail": "Manually checked feed recommendations, weekly headlines from independent Canadian publishers, and on-demand feeds in your private reading list.",
+    "cadence": "Weekly for Small Web North; on demand for your reading list",
+    "probes": [
+      {
+        "label": "Small Web North source check",
+        "url": "https://coolcode.ca/feedharbour/data/small-web-status.json",
+        "path": [
+          "checked_at"
+        ],
+        "count_at": {
+          "path": [
+            "sites"
+          ],
+          "unit": "independent sites"
+        }
+      }
+    ]
+  },
+  "result_directory": {
+    "path": "records/",
+    "title": "Small Web North — Canadian independent sites"
   }
 }

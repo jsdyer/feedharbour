@@ -7,6 +7,7 @@
     "/researchledger/feeds/sfu.xml",
     "/packagepulse/feed.xml",
     "/rackexpiry/feed.xml",
-    "/rackexpiry/releases.xml"
+    "/rackexpiry/releases.xml",
+    "/feedharbour/records/feed.xml"
   ]
 }

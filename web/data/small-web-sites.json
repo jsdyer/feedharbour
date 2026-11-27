@@ -1,0 +1,33 @@
+[
+  {
+    "id": "julia-evans", "name": "Julia Evans", "url": "https://jvns.ca/", "feed": "https://jvns.ca/atom.xml",
+    "place": "Montréal, Quebec", "evidence": "https://jvns.ca/about/", "basis": "Evans identifies Montréal as home on her About page.",
+    "topics": ["Programming", "Open web"], "description": "Illustrated explanations and hands-on notes about how everyday developer tools work."
+  },
+  {
+    "id": "evan-prodromou", "name": "Evan Prodromou’s Blog", "url": "https://evanp.me/", "feed": "https://evanp.me/feed/",
+    "place": "Montréal, Quebec", "evidence": "https://evanp.me/author/evanprodromou/", "basis": "Prodromou’s author profile places him in Montréal and describes his work on ActivityPub.",
+    "related_tool": {"title": "Explore hosting across the fediverse", "url": "https://coolcode.ca/fedifootprint/", "detail": "FediFootprint compares weekly server and active-account counts across the social web."},
+    "topics": ["Open web", "Digital policy"], "description": "An ActivityPub co-author writes about the social web, independent publishing and daily life."
+  },
+  {
+    "id": "michael-geist", "name": "Michael Geist", "url": "https://www.michaelgeist.ca/", "feed": "https://www.michaelgeist.ca/feed/",
+    "place": "Ottawa, Ontario", "evidence": "https://www.michaelgeist.ca/about/", "basis": "Geist identifies the University of Ottawa as his professional base.",
+    "topics": ["Digital policy", "Open web"], "description": "Canadian internet law, copyright and public policy through commentary and the Law Bytes podcast."
+  },
+  {
+    "id": "miss604", "name": "Miss604", "url": "https://miss604.com/", "feed": "https://miss604.com/feed/",
+    "place": "Vancouver, British Columbia", "evidence": "https://miss604.com/about/", "basis": "Rebecca Bollwitt describes Miss604 as an independent publication covering life in BC and identifies its publishing location.",
+    "topics": ["Local life", "Culture"], "description": "Rebecca Bollwitt’s independent Vancouver publication covers local events, community projects and places to explore."
+  },
+  {
+    "id": "hans-on-the-bike", "name": "Hans on the Bike", "url": "https://hansonthebike.com/", "feed": "https://hansonthebike.com/feed/",
+    "place": "Ottawa–Gatineau, National Capital Region", "evidence": "https://hansonthebike.com/about-2/", "basis": "The author identifies Canada’s National Capital Region as home and as the focus of his cycling coverage.",
+    "topics": ["Local life", "Cycling"], "description": "A rider’s reports on everyday cycling, city routes and changes to cycling infrastructure in the National Capital Region."
+  },
+  {
+    "id": "the-tyee", "name": "The Tyee", "url": "https://thetyee.ca/", "feed": "https://thetyee.ca/rss2.xml",
+    "place": "British Columbia", "evidence": "https://thetyee.ca/about_us/", "basis": "The Tyee describes itself as an independent online news magazine from British Columbia.",
+    "topics": ["Local life", "Culture"], "description": "An independent BC newsroom publishes reporting, analysis and arts coverage from across the province and beyond."
+  }
+]

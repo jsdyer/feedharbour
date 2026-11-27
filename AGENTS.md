@@ -52,7 +52,7 @@
 
 ## Feed Harbour invariants
 
-- No API secrets, automatic source fetch, automatic local save or scheduled collector.
+- Keep visitor subscriptions and device saves on demand. The only scheduled fetch is the reviewed public publisher list in Small Web North.
 - Never fetch private/tokenized feeds through the public gateway; local XML imports stay local.
 - Never render feed HTML, load tracking images, fetch OPML includes or scrape full articles.
 - Reject DOCTYPE/entities before XML parsing. Keep safe links, bounded imports and preserved
@@ -69,4 +69,4 @@
   the honest check metadata. Never turn an unverified/failed feed into a successful record.
 - Browsing, individual subscriptions and topic packs do not fetch publishers or save
   automatically. Preserve arbitrary URLs, OPML and local XML as independent entry points.
-- This is manually checked directory maintenance, not a scheduled feed collector.
+- Maintain the general topic directory manually. Schedule Small Web North separately and keep per-site last-good headlines and their capture dates on failure.

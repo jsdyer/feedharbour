@@ -1,0 +1,50 @@
+name: Refresh Small Web North headlines
+on:
+  schedule:
+    - cron: '17 11 * * 2'
+  workflow_dispatch:
+concurrency:
+  group: feedharbour-small-web-refresh
+  cancel-in-progress: false
+permissions:
+  contents: read
+jobs:
+  refresh:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+      - name: Collect Canadian publisher feeds
+        id: collect
+        continue-on-error: true
+        run: python3 scripts/small_web.py
+      - run: node --test tests/*.test.mjs
+      - run: python3 -m unittest discover -s tests -v
+      - run: python3 scripts/build.py
+      - name: Publish captured headlines and per-site availability
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if ! git diff --quiet -- web/data/small-web.json; then
+            git add web/data/small-web.json
+            git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Refresh Small Web North publisher headlines'
+            git push origin HEAD:main
+            gh workflow run pages.yml --ref main
+          elif [ "$GITHUB_RUN_ATTEMPT" -gt 1 ]; then
+            gh workflow run pages.yml --ref main
+          fi
+      - name: Report unavailable publishers to the watchdog
+        if: steps.collect.outcome == 'failure'
+        run: exit 1

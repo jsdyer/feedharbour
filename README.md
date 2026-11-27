@@ -1,9 +1,9 @@
 # Feed Harbour
 
-[Open Feed Harbour](https://coolcode.ca/feedharbour/) — read public RSS and Atom feeds in one calm workspace, organize them into folders and keep a private reading list. It runs as a static browser app with a shared public-feed gateway. No account, subscription, API key or app-specific scheduled collector is required.
+[Open Feed Harbour](https://coolcode.ca/feedharbour/) — read public RSS and Atom feeds in one calm workspace, organize them into folders and keep a private reading list. It runs as a static browser app with a shared public-feed gateway. The reader needs no account or API key. Small Web North publishes a weekly selection of Canadian independent publishers’ headlines.
 
 <!-- coolcode:guide -->
-Browse checked RSS feeds across CoolCode's topics, including British Columbia and Nova Scotia news, public records, Linux, networks, space, money and culture. CoolCode’s Civic Revision and Release Receipt feeds cover Wikipedia revisions and Statistics Canada releases. Paste Research Ledger’s university feeds or the Package Pulse and Rack Expiry release feeds to follow research and software updates. Add one source or a topic pack, then choose Refresh; browsing or subscribing does not fetch articles automatically. You can still enter any public feed, import OPML or read local RSS/Atom XML privately. Save deliberately on your device or export JSON to keep reading state; OPML exports subscriptions and folders. Failed refreshes keep the last good items visible.
+Browse checked RSS feeds across CoolCode's topics, including British Columbia and Nova Scotia news, public records, Linux, networks, space, money and culture. CoolCode’s Civic Revision and Release Receipt feeds cover Wikipedia revisions and Statistics Canada releases. Paste Research Ledger’s university feeds or the Package Pulse and Rack Expiry release feeds to follow research and software updates. Add one source or a topic pack, then choose Refresh; browsing or subscribing does not fetch articles automatically. You can still enter any public feed, import OPML or read local RSS/Atom XML privately. Save deliberately on your device or export JSON to keep reading state; OPML exports subscriptions and folders. Small Web North checks independent Canadian publishers every Tuesday at 11:17 UTC. Browse its source profiles, follow related sites, open a weekly capture in the reader, subscribe to combined RSS or download the publisher feeds as OPML. Each profile gives the publisher’s own Canadian connection and separates its posting dates from the collection dates. Failed refreshes keep the last good items visible.
 <!-- /coolcode:guide -->
 
 ## Start reading
@@ -15,6 +15,14 @@ Browse checked RSS feeds across CoolCode's topics, including British Columbia an
 5. Save on this browser/device deliberately, or export JSON before closing the tab. A fresh tab starts empty; use Load saved to restore a device save. No automatic restore or save occurs.
 
 For a fully local example, click **Try an invented example**. The bundled example headlines are labelled demonstrations, not news. Directory recommendations are optional public subscriptions, not a limit on what visitors can follow. They span all nine existing CoolCode categories, with food/culture under Media and travel/local reporting under Maps, trails & history. Topic packs become ordinary folders; existing subscriptions are not duplicated or moved. If a pack would exceed the 50-feed workspace limit, the entire addition is rejected with an explanation.
+
+## Small Web North
+
+[Browse Canadian independent publishers](https://coolcode.ca/feedharbour/records/) or open any profile to see its topics, Canadian connection, publisher evidence, related sites and captured headlines. Search by place or topic, or choose **Surprise me with a site**. A profile’s **Read in Feed Harbour** link opens its weekly titles in a fresh, unsaved reader tab or page. The original publisher’s feed becomes available for a later explicit refresh. The collection also has a [combined RSS feed](https://coolcode.ca/feedharbour/records/feed.xml) and an [OPML subscription list](https://coolcode.ca/feedharbour/records/subscriptions.opml).
+
+The scheduled collector checks the small public list on Tuesdays at 11:17 UTC. It keeps up to eight linked headlines per publisher and records publication dates, update dates and successful capture times separately. A failed site keeps its previous headlines with dated availability on its profile. If all publishers fail, the previous edition remains online and the job reports failure. The RSS export deduplicates article links across sources and supplies a publication date only when the publisher provides one. OPML points to each original publisher feed. The archive stores titles, identity, dates and links. Publisher pages retain their full articles, images and rights.
+
+To add a site, edit `web/data/small-web-sites.json`. Use its publisher’s own About page as evidence of a public Canadian connection, describe its subject in original words and supply a working, public RSS/Atom URL. Run `python3 scripts/small_web.py --verify-reader` to verify every original feed through the deployed reader gateway and renew `docs/small-web-validation.json` when every publisher passes. Run `python3 scripts/small_web.py` to collect and validate the native XML directly. Run the tests and offline build below. Check the generated site profile, related-topic labels, RSS and OPML in `dist/records/`. The collector only requests the explicitly reviewed publisher feeds. It never requests article pages or visitor subscriptions. Commit the updated source list and capture, then publish through the existing Pages workflow.
 
 ## Imports, exports and retention
 
@@ -44,7 +52,7 @@ All feed titles, summaries, folder names and errors render as text, never raw HT
 
 Only an explicit public refresh contacts a feed source. The exact static CoolCode paths in `web/config.json` → `firstPartyFeeds` load directly when this app runs on https://coolcode.ca, with credentials omitted, redirects rejected and a streamed 2 MB limit. This lets new research and release feeds work without another Worker deployment. Other public refreshes send feed URLs to the gateway and publisher. Local XML/JSON/OPML imports, search, reading flags and saved items stay in the browser until the user exports or deliberately saves. Device storage is unencrypted under `coolcode:feedharbour:workspace`; storage quota failures show an error and suggest JSON export. The shared CoolCode counter records aggregate tool opens by ID only, not subscriptions, searches or feed content. Clicking an article contacts its publisher.
 
-The gateway uses HTTPS, public-network restrictions, redirect validation and bounded responses. Its shared cache can retain a successful feed response for 15 minutes; the UI displays the gateway's actual `fetched_at`, not the page-build time. A shared daily allowance and upstream 403/404/429 errors can prevent a refresh. Errors are visible per feed and last-good captures are retained. No automatic polling, background job or scheduled collection occurs in this repository.
+The gateway uses HTTPS, public-network restrictions, redirect validation and bounded responses. Its shared cache can retain a successful feed response for 15 minutes; the UI displays the gateway's actual `fetched_at`, not the page-build time. A shared daily allowance and upstream 403/404/429 errors can prevent a refresh. Errors are visible per feed and last-good captures are retained. Your private workspace refreshes only when requested. A separate weekly job checks the public Small Web North publishers.
 
 ## Gateway contract and setup
 
@@ -91,7 +99,7 @@ The list, search results, folder options and counts derive from the actual direc
 
 Browser workspace/retention logic is in `web/model.mjs`, XML parsing in `web/xml.mjs`, directory validation/search in `web/directory.mjs`, and UI in `web/app.mjs`. Update tests and documentation when changing formats or identity rules. Saved workspace schemas must remain readable or receive an explicit migration.
 
-After checking sources, run the tests/build below, commit the directory, verification report, code and guide, then push to `main`. This manual maintenance command is **not** a scheduled collector. No new API key, recurring workflow or watchdog schedule is needed. The shared gateway remains maintained separately in the hub; ordinary directory edits require no gateway deployment.
+After checking sources, run the tests/build below, commit the directory, verification report, code and guide, then push to `main`. This manual maintenance command is **not** a scheduled collector. The Small Web North workflow separately collects the reviewed publisher list. The shared gateway remains maintained separately in the hub; ordinary directory edits require no gateway deployment.
 
 ## Develop and publish
 
@@ -117,7 +125,7 @@ Pure-model tests cover directory expansion, topic/search filtering and pack dedu
 
 GitHub Actions uses Ubuntu 24.04 and Google Chrome, checks PRs, saves screenshots and a preview, then publishes successful `main` builds. Set **Settings → Pages → Source → GitHub Actions**. Only `dist/` is deployed; do not commit it or add a CNAME. App assets remain relative for `/feedharbour/`.
 
-Follow the [CoolCode lifecycle](https://github.com/jsdyer/jsdyer.github.io/blob/main/docs/tool-lifecycle.md): import `tool.json` and this marked guide in the hub, regenerate homepage/README, Worker registration and sitemap, reconcile repository coverage and ordinary live-page probes, and verify gateway behaviour. This app has **no collector/freshness watchdog schedule**. Its public-page and shared gateway probes are integration concerns, not additional cron jobs in this repo.
+Follow the [CoolCode lifecycle](https://github.com/jsdyer/jsdyer.github.io/blob/main/docs/tool-lifecycle.md): import `tool.json` and this marked guide in the hub, regenerate homepage/README, Worker registration and sitemap, reconcile repository coverage and ordinary live-page probes, and verify gateway behaviour. Register the Small Web North collector and its source-date probe in the independent watchdog. The on-demand reader and shared gateway retain their existing availability checks.
 
 ## Primary references and optional starters
 

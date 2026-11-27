@@ -168,6 +168,40 @@ def main():
                     overflow = page.evaluate("[...document.querySelectorAll('body *')].filter(e=>e.getBoundingClientRect().right>innerWidth+1).map(e=>({tag:e.tagName,id:e.id,class:e.className,width:e.getBoundingClientRect().width,right:e.getBoundingClientRect().right})).slice(0,15)")
                     assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), overflow
                 assert not errors, errors
+                base = f'http://127.0.0.1:{server.server_port}/feedharbour/'
+                visitor = browser.new_page(viewport={'width':390, 'height':844})
+                external = []
+                visitor.on('request', lambda req: external.append(req.url) if '127.0.0.1' not in req.url else None)
+                visitor.goto(base + 'records/')
+                expect(visitor.get_by_role('heading', name='Small Web North', exact=True)).to_be_visible()
+                visitor.screenshot(path=str(screenshots / 'small-web-mobile.png'))
+                assert visitor.evaluate('document.documentElement.scrollWidth <= innerWidth')
+                sources = json.loads((ROOT/'web/data/small-web-sites.json').read_text())
+                captures = json.loads((ROOT/'web/data/small-web.json').read_text())['captures']
+                visitor.get_by_role('searchbox').fill('montreal')
+                expect(visitor.locator('[data-site]:visible')).to_have_count(sum('Montréal' in s['place'] and bool(captures[s['id']]['items']) for s in sources))
+                visitor.get_by_role('searchbox').fill('a nonmatching query')
+                expect(visitor.get_by_role('button', name='Surprise me with a site')).to_be_disabled()
+                visitor.get_by_role('searchbox').fill('cycling')
+                visitor.get_by_role('button', name='Surprise me with a site').click()
+                expect(visitor).to_have_url(base + 'records/sites/hans-on-the-bike/')
+                expect(visitor.get_by_role('heading', name='Related sites')).to_be_visible()
+                visitor.get_by_role('link', name='Read in Feed Harbour').click()
+                expect(visitor.locator('#items article')).to_have_count(len(captures['hans-on-the-bike']['items']))
+                expect(visitor.locator('#status')).to_contain_text('Hans on the Bike')
+                assert external == [], 'Opening the weekly capture should not contact publishers or gateway'
+                assert visitor.evaluate("localStorage.getItem('coolcode:feedharbour:workspace')") is None
+                visitor.goto(base + '?smallweb=unknown#reading')
+                expect(visitor.locator('#status')).to_contain_text('No captured site matches')
+                no_js = browser.new_context(java_script_enabled=False)
+                static_page = no_js.new_page()
+                static_page.goto(base + 'records/')
+                expect(static_page.locator('[data-site]')).to_have_count(sum(bool(c['items']) for c in captures.values()))
+                static_page.get_by_role('heading', name='Miss604', exact=True).get_by_role('link').click()
+                expect(static_page.get_by_role('link', name='Original feed')).to_be_visible()
+                expect(static_page.locator('.headlines').first.get_by_role('link').first).to_be_visible()
+                assert static_page.locator('.headlines').first.get_by_role('link').first.get_attribute('href').startswith('https://')
+                no_js.close()
                 browser.close()
             print('Browser checks passed: recommended directory, explicit topic packs, RSS/Atom/OPML, XML safety, live contract, failed refresh retention, reading state, arbitrary feeds, exports and mobile layout')
         finally:

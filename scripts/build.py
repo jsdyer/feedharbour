@@ -10,6 +10,7 @@ import tempfile
 from urllib.parse import urlsplit
 
 from search_metadata import add_search_metadata
+from small_web_pages import build_records
 
 ROOT = Path(__file__).resolve().parents[1]
 SLUG = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*")
@@ -18,7 +19,7 @@ SLUG = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*")
 def metadata(root=ROOT):
     tool = json.loads((root / "tool.json").read_text(encoding="utf-8"))
     required = {"id", "title", "description", "category", "tags", "icon", "url", "source", "hosting", "access", "data_info"}
-    if not isinstance(tool, dict) or set(tool) != required:
+    if not isinstance(tool, dict) or set(tool) != required | {"result_directory"}:
         raise ValueError("tool.json has missing or unknown fields")
     for key in required - {"tags", "data_info"}:
         if not isinstance(tool[key], str) or not tool[key].strip():
@@ -103,6 +104,7 @@ def build(root=ROOT):
             raise ValueError("Unresolved template placeholder in web/index.html")
         page = add_search_metadata(page, tool, category="NewsApplication")
         index.write_text(page, encoding="utf-8")
+        build_records(stage, tool, on_coolcode)
         version_assets(stage)
         (stage / ".nojekyll").touch()
         if output.exists():
